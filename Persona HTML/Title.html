@@ -1,0 +1,744 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Persona HTML</title>
+
+  </head>
+
+  <body>
+
+<div id="background">
+<video id="backgroundVideo" loop autoplay>
+<source src="/home/sergio/Downloads/Persona HTML/P3 Opening.mp4" type="video/mp4">
+<source src="/home/sergio/Downloads/Persona HTML/P3P.mp4" type="video/mp4">
+<source src="/home/sergio/Downloads/Persona HTML/P3 Dancing.mp4" type="video/mp4">
+</video>
+</div>
+
+<button id="callMenu" type="button" class=" glyphicon glyphicon-th-list" onclick="menuAppear()">Menu</button>
+
+<div id="menu">
+<h1>Persona HTML</h1>
+<h2><a onclick="playSelect()">New Game</a></h2>
+<h2><a onclick="playSelect()">Load Game</a></h2>
+<h2><a onclick="playSelect()">Controls</a></h2>
+<h2><a onclick="options()">Options</a></h2>
+<h2><a onclick="creditsAppear()">Credits</a></h2>
+</div>
+
+<div id="options">
+  <h1>Options</h1>
+  <h2><a onclick="optionsOST()">OST</a></h2>
+  <h2><a onclick="playSelect()">Settings</a></h2>
+  <h2><a onclick="toTitles()">Title Screens</a></h2>
+  <h2><a onclick="menuReturn()">Return</a></h2>
+</div>
+
+<div id="settings">
+  <h1>Settings</h1>
+    <textarea rows="1" cols="50"></textarea>
+</div>
+
+<div id="optionsOST">
+  <div id="songPage01">
+  <h1>OST</h1>
+  <button id="prevSongPage">Prev. Page</button>
+  <button id="nextSongPage">Next Page</button>
+  <h2><a id="wayOfLife" onclick="playSelect()">A Way Of Life</a></h2>
+  <h2><a id="beneathMask" onclick="playSelect()">Beneath the Mask</a></h2>
+  <h2><a id="brandNewDays" onclick="playSelect()">Brand New Days</a></h2>
+  <h2><a id="burnMyDread" onclick="playSelect()">Burn My Dread</a></h2>
+  <h2><a id="changingSeasons" onclick="playSelect()">Changing Seasons</a></h2>
+  <h2><a id="dance" onclick="playSelect()">Dance!</a></h2>
+  <h2><a id="deepBreath" onclick="playSelect()">Deep Breath Deep Breath</a></h2>
+  <h2><a id="heartbreak" onclick="playSelect()">Heartbreak, Heartbreak</a></h2>
+</div>
+  //
+  <div id="songPage02">
+  <h2><a id="heaven" onclick="playSelect()">Heaven</a></h2>
+  <h2><a id="joy" onclick="playSelect()">Joy</a></h2>
+  <h2><a id="kimiNoKioku" onclick="playSelect()">Kimi no Kioku</a></h2>
+  <h2><a id="lastSurprise" onclick="playSelect()">Last Surprise</a></h2>
+  <h2><a id="moreThanOneHeart" onclick="playSelect()">More Than One Heart</a></h2>
+  <h2><a id="neverMore" onclick="playSelect()">Never More</a></h2>
+  <h2><a id="ourMoment" onclick="playSelect()">Our Moment</a></h2>
+  <h2><a id="shadowWorld" onclick="playSelect()">Shadow World</a></h2>
+</div>
+  //
+  <div id="songPage03">
+  <h2><a id="signsOfLove" onclick="playSelect()">Signs of Love</a></h2>
+  <h2><a id="soulPhase" onclick="playSelect()">Soul Phase</a></h2>
+  <h2><a id="time" onclick="playSelect()">Time</a></h2>//
+  <h2><a id="wantToBeClose" onclick="playSelect()">Want to be close</a></h2>//
+  <h2><a id="wipingAllOut" onclick="playSelect()">Wiping All Out</a></h2>
+</div>
+
+  <h2><a onclick="optionsReturn()">Return</a></h2>
+</div>
+
+<div id="optionsTitleScreens">
+  <h1>Title Screens</h1>
+  <h2><a id="p3" onclick="titleVideo()">P3</a></h2>
+  <h2><a id="p3FES" onclick="titleVideo()">P3 FES</a></h2>
+  <h2><a id="p3p" onclick="titleVideo()">P3P</a></h2>
+  <h2><a id="p3d" onclick="titleVideo()">P3 DMN</a></h2>
+  <h2><a onclick="optionsReturn()">Return</a></h2>
+</div>
+
+<div id="credits">
+<h1>Credits</h1>
+<h2>Atlus</h2>
+<p>All Property Of Atlus That Was Used Is Theirs.<p>
+<p>I Do Not Own Any Of It.</p>
+<p>I used it for learning purposes,</p>
+<p>relating to Computer Science.</p>
+<h2><a onclick="menuReturn()">Return</a></h2>
+</div>
+
+<!--Sound Effects-->
+<audio id="select"><source src="/home/sergio/Downloads/Persona HTML/Select.mp3"/></audio>
+<audio id="return"><source src="/home/sergio/Downloads/Persona HTML/Return.mp3"/></audio>
+
+<!--OST-->
+<audio id="audio1"><source src="#"/></audio>
+
+<style>
+
+a{
+  color: white;
+}
+
+a:hover{
+  color: red;
+  cursor: pointer;
+}
+
+body{
+  background-color: black;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: black;
+  }
+  20% {
+    background-color: black;
+  }
+  40% {
+    background-color: red;
+  }
+  60% {
+    background-color: black;
+  }
+  80% {
+    background-color: black;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+button{
+  background-color: black;
+  border: none;
+  color: red;
+}
+
+#backgroundVideo{
+  height: 100%;
+  width: 100%;
+}
+
+#callMenu{
+  background-color: gray;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#credits{
+  color: white;
+  background-color: black;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 99;
+}
+
+#menu{
+  color: white;
+  animation: 10000ms ease-in-out infinite color-change;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 100;
+}
+
+#options{
+  color: white;
+  animation: 10000ms ease-in-out infinite color-change;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 99;
+}
+
+#optionsOST{
+  color: white;
+  animation: 10000ms ease-in-out infinite color-change;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 99;
+}
+
+#optionsTitleScreens{
+  color: white;
+  animation: 10000ms ease-in-out infinite color-change;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 99;
+}
+
+#settings{
+  color: white;
+  animation: 10000ms ease-in-out infinite color-change;
+  top: 50px;
+  right: 10px;
+  opacity: 0.0;
+  position: absolute;
+  z-index: 99;
+}
+
+</style>
+
+<script>
+//"use strict";
+
+//Click Status for each menu
+var clicked = false;
+var credits = false;
+var optionsClicked = false;
+var optionsOSTMenu = false;
+var titlesClicked = false;
+
+
+//Document Variables
+var creditsMenu = document.getElementById("credits");
+var menu = document.getElementById("menu");
+var optionz = document.getElementById("options");
+var optionzOST = document.getElementById("optionsOST");
+var titleScreens = document.getElementById("optionsTitleScreens");
+
+
+function creditsAppear()
+{
+playSelect();
+if(!credits)
+{
+  credits = true;
+  creditsMenu.style.opacity = "1";
+  menu.style.opacity = "0.0";
+  optionz.style.opacity = "0.0";
+  titleScreens.style.opacity = "0.0";
+  optionzOST.style.opacity = "0.0";
+  document.getElementById("backgroundVideo").style.width = "77%";
+  creditsMenu.style.zIndex = "100";
+  menu.style.zIndex = "99";
+  optionz.style.zIndex = "98";
+  titleScreens.style.zIndex = "98";
+  optionzOST.style.zIndex = "98";
+}
+else
+{
+  credits = false;
+  creditsMenu.style.opacity = "0.0";
+  menu.style.opacity = "1";
+  optionz.style.opacity = "0.0";
+  titleScreens.style.opacity = "0.0";
+  optionzOST.style.opacity = "0.0";
+  document.getElementById("backgroundVideo").style.width = "80%";
+}
+
+}
+
+//Menu functions
+function menuAppear()
+{
+
+  playSelect();
+  if(!clicked)
+  {
+    clicked = true;
+    menu.style.opacity = "1";
+    optionz.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    menu.style.zIndex = "100";
+    optionz.style.zIndex = "99";
+    titleScreens.style.zIndex = "98";
+    optionzOST.style.zIndex = "97";
+  }
+  else
+  {
+    clicked = false;
+    menu.style.opacity = "0.0";
+    optionz.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "100%";
+  }
+}
+
+function menuReturn()
+{
+  playReturn();
+  clicked = false;
+  if(!clicked)
+  {
+    clicked = true;
+    menu.style.opacity = "1";
+    creditsMenu.style.opacity = "0.0";
+    optionz.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    creditsMenu.style.zIndex = "99";
+    menu.style.zIndex = "100";
+    optionz.style.zIndex = "99";
+    titleScreens.style.zIndex = "99";
+    optionzOST.style.zIndex = "99";
+  }
+  else
+  {
+    clicked = false;
+    creditsMenu.style.opacity = "0.0";
+    menu.style.opacity = "0.0";
+    optionz.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "100%";
+  }
+}
+
+function options()
+{
+  playSelect();
+  optionsClicked = false;
+  if(!optionsClicked)
+  {
+    optionsClicked = true;
+    menu.style.opacity = "0.0";
+    optionz.style.opacity = "1";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    menu.style.zIndex = "99";
+    optionz.style.zIndex = "100";
+    titleScreens.style.zIndex = "98";
+    optionzOST.style.zIndex = "97";
+  }
+  else
+  {
+    optionsClicked = false;
+    menu.style.opacity = "1";
+    optionz.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    menu.style.zIndex = "100";
+    optionz.style.zIndex = "99";
+    titleScreens.style.zIndex = "98";
+    optionzOST.style.zIndex = "97";
+  }
+}
+
+function optionsReturn()
+{
+  playReturn();
+  optionsClicked = false;
+  if(!optionsClicked)
+  {
+    optionsClicked = true;
+    menu.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionz.style.opacity = "1";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    menu.style.zIndex = "99";
+    optionz.style.zIndex = "100";
+    titleScreens.style.zIndex = "98";
+    optionzOST.style.zIndex = "97";
+  }
+  else
+  {
+    optionsClicked = false;
+    menu.style.opacity = "1";
+    optionzOST.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionz.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    menu.style.zIndex = "100";
+    optionz.style.zIndex = "99";
+    titleScreens.style.zIndex = "98";
+    optionzOST.style.zIndex = "97";
+  }
+}
+
+function optionsOST()
+{
+    var aWayOfLife = document.getElementById("wayOfLife");
+    var beneathMask = document.getElementById("beneathMask");
+    var brandNewDays = document.getElementById("brandNewDays");
+    var burnMyDread = document.getElementById("burnMyDread");
+    var changingSeasons = document.getElementById("changingSeasons");
+    var dance = document.getElementById("dance");
+    var deepBreath = document.getElementById("deepBreath");
+    var heartbreak = document.getElementById("heartbreak");
+    var heaven = document.getElementById("heaven");
+    var joy = document.getElementById("joy");
+    var kimiNoKioku = document.getElementById("kimiNoKioku");
+    var lastSurprise = document.getElementById("lastSurprise");
+    var moreThanOneHeart = document.getElementById("moreThanOneHeart");
+    var neverMore = document.getElementById("neverMore");
+    var ourMoment = document.getElementById("ourMoment");
+    var signsOfLove = document.getElementById("signsOfLove");
+    var shadowWorld = document.getElementById("shadowWorld");
+    var soulPhase = document.getElementById("soulPhase");
+    var time = document.getElementById("time");
+    var wantToBeClose = document.getElementById("wantToBeClose");
+    var wipingAllOut = document.getElementById("wipingAllOut");
+    var video = document.getElementById("backgroundVideo");
+
+
+
+      playSelect();
+      if(!optionsOSTMenu)
+      {
+        optioptionsOSTMenuonsOST = true;
+        optionz.style.opacity = "0.0";
+        optionzOST.style.opacity = "1";
+        document.getElementById("backgroundVideo").style.width = "77%";
+        menu.style.zIndex = "98";
+        optionz.style.zIndex = "99";
+        titleScreens.style.zIndex = "97";
+        optionzOST.style.zIndex = "100";
+      }
+      else
+      {
+        optionsOSTMenu = false;
+        optionz.style.opacity = "1";
+        optionzOST.style.opacity = "0.0";
+        document.getElementById("backgroundVideo").style.width = "80%";
+        menu.style.zIndex = "98";
+        optionz.style.zIndex = "100";
+        titleScreens.style.zIndex = "99";
+        optionzOST.style.zIndex = "97";
+      }
+
+
+
+      aWayOfLife.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/A Way Of Life.mp3";
+        audio.play();
+      });
+
+      beneathMask.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Beneath the Mask.mp3";
+        audio.play();
+      });
+
+      brandNewDays.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Brand New Days.mp3";
+        audio.play();
+      });
+
+      burnMyDread.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Burn My Dread.mp3";
+        audio.play();
+      });
+
+      changingSeasons.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Changing Seasons.mp3";
+        audio.play();
+      });
+
+      dance.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Dance!.mp3";
+        audio.play();
+      });
+
+      deepBreath.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Deep breath Deep breath.mp3";
+        audio.play();
+      });
+
+      heartbreak.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Heartbreak, Heartbreak.mp3";
+        audio.play();
+      });
+
+      heaven.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Heaven.mp3";
+        audio.play();
+      });
+
+      joy.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Joy.mp3";
+        audio.play();
+      });
+
+      kimiNoKioku.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Kimi no Kioku.mp3";
+        audio.play();
+      });
+
+      lastSurprise.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Last Surprise.mp3";
+        audio.play();
+      });
+
+      moreThanOneHeart.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/More Than One Heart.mp3";
+        audio.play();
+      });
+
+      neverMore.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Never More.mp3";
+        audio.play();
+      });
+
+      ourMoment.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Our Moment.mp3";
+        audio.play();
+      });
+
+      shadowWorld.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Shadow World.mp3";
+        audio.play();
+      });
+
+      signsOfLove.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Signs of Love.mp3";
+        audio.play();
+      });
+
+      soulPhase.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Soul Phase.mp3";
+        audio.play();
+      });
+
+      time.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Time.mp3";
+        audio.play();
+      });
+
+      wantToBeClose.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Want to be close.mp3";
+        audio.play();
+      });
+
+      wipingAllOut.addEventListener("click", ()=>{
+        playSelect();
+        video.muted = true;
+        var audio = document.getElementById("audio1");
+        audio.src = "/home/sergio/Downloads/Persona HTML/Wiping All Out.mp3";
+        audio.play();
+      });
+}
+
+function ostManager()
+{
+  var nextPage = document.getElementById("nextSongPage");
+  var prevPage = document.getElementById("prevSongPage");
+  var pageCounter = 0;
+
+  if( pageCounter == 0)
+  {
+
+  document.getElementById("optionsOST");
+
+  prevPage.addEventListener("click", ()=>{
+
+  });
+
+  nextPage.addEventListener("click", ()=>{
+
+  });
+  pageCounter++;
+  }
+  else if(pageCounter == 1)
+  {
+    prevPage.addEventListener("click", ()=>{
+
+    });
+
+    nextPage.addEventListener("click", ()=>{
+
+    });
+    pageCounter++;
+  }
+  else if(pageCounter == 2)
+  {
+    prevPage.addEventListener("click", ()=>{
+
+    });
+
+    nextPage.addEventListener("click", ()=>{
+
+    });
+    pageCounter = 0;
+  }
+}
+
+function playSelect()
+{
+  var audio = document.getElementById('select');
+  audio.play();
+}
+
+function playReturn()
+{
+  var audio = document.getElementById('return');
+  audio.play();
+
+}
+
+function resetToDefaultValues()
+{
+
+}
+
+function toTitles()
+{
+    playSelect();
+    if(!titlesClicked)
+    {
+      titlesClicked = true;
+      optionz.style.opacity = "0.0";
+      titleScreens.style.opacity = "1";
+      document.getElementById("backgroundVideo").style.width = "80%";
+      menu.style.zIndex = "98";
+      optionz.style.zIndex = "99";
+      titleScreens.style.zIndex = "100";
+      optionzOST.style.zIndex = "97";
+    }
+    else
+    {
+      titlesClicked = false;
+      optionz.style.opacity = "1";
+      titleScreens.style.opacity = "0.0";
+      document.getElementById("backgroundVideo").style.width = "80%";
+      menu.style.zIndex = "98";
+      optionz.style.zIndex = "100";
+      titleScreens.style.zIndex = "99";
+      optionzOST.style.zIndex = "97";
+    }
+}
+
+function titleVideo(){
+    var video = document.getElementById("backgroundVideo");
+
+    var p3 = document.getElementById("p3");
+    var p3p = document.getElementById("p3p");
+    var p3d = document.getElementById("p3d");
+    var p3FES = document.getElementById("p3FES");
+
+      p3.addEventListener("click", ()=>{
+      playSelect();
+      video.src = "/home/sergio/Downloads/Persona HTML/P3 Opening.mp4";
+      video.play();
+    });
+
+      p3p.addEventListener("click", ()=>{
+      playSelect();
+      video.src = "/home/sergio/Downloads/Persona HTML/P3P.mp4";
+      video.play();
+    });
+
+      p3d.addEventListener("click", ()=>{
+      playSelect();
+      video.src = "/home/sergio/Downloads/Persona HTML/P3 Dancing.mp4";
+      video.play();
+    });
+
+    p3FES.addEventListener("click", ()=>{
+    playSelect();
+    video.src = "/home/sergio/Downloads/Persona HTML/P3 FES.mp4";
+    video.play();
+  });
+
+}
+
+</script>
+    </body>
+
+</html>
