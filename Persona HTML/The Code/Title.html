@@ -16,7 +16,7 @@ a{
 }
 
 a:hover{
-  color: red;
+  color: lime;
   cursor: pointer;
 }
 
@@ -149,7 +149,7 @@ button{
 }
 
 #credits{
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   color: white;
   background-color: black;
   top: 50px;
@@ -171,7 +171,7 @@ color: white;
 
 #menu{
   color: white;
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   top: 50px;
   right: 10px;
   opacity: 0.0;
@@ -181,7 +181,7 @@ color: white;
 
 #options{
   color: white;
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   top: 50px;
   right: 10px;
   opacity: 0.0;
@@ -191,7 +191,7 @@ color: white;
 
 #optionsOST{
   color: white;
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   top: 50px;
   right: 10px;
   opacity: 0.0;
@@ -201,7 +201,7 @@ color: white;
 
 #optionsTitleScreens{
   color: white;
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   top: 50px;
   right: 10px;
   opacity: 0.0;
@@ -211,7 +211,7 @@ color: white;
 
 #themes{
   color: white;
-  animation: 10000ms ease-in-out infinite color-change;
+  animation: 10000ms ease-in-out infinite color-change04;
   top: 50px;
   right: 10px;
   opacity: 0.0;
@@ -224,15 +224,22 @@ color: white;
 
   </head>
 
-  <body>
+  <body onload="loadPreferences()">
 
 <div id="background">
 <video id="backgroundVideo" loop autoplay>
-<source src="../P3 Opening.mp4" type="video/mp4">
-<source src="../P3P.mp4" type="video/mp4">
-<source src="../P3 Dancing.mp4" type="video/mp4">
 </video>
 </div>
+
+<!--Sound Effects-->
+<audio id="error"><source src="../Denied.mp3"/></audio>
+<audio id="kickSomeAss"><source src="../kickSomeAss.mp3"/></audio>
+<audio id="return"><source src="../Return.mp3"/></audio>
+<audio id="select"><source src="../Select.mp3"/></audio>
+<audio id="sonOfaNice"><source src="../Son of a nice.mp3"/></audio>
+
+<!--OST-->
+<audio id="audio1" loop><source src=""/></audio>
 
 <button id="callMenu" type="button" class=" glyphicon glyphicon-th-list" onclick="menuAppear()">Menu</button>
 
@@ -250,6 +257,7 @@ color: white;
   <h2><a onclick="optionsOST()">OST</a></h2>
   <h2><a onclick="chooseTheme()">Themes</a></h2>
   <h2><a onclick="toTitles()">Title Screens</a></h2>
+  <h2><a onclick="resetPreferences()">Reset Preferences<a/></h2>
   <h2><a onclick="menuReturn()">Return</a></h2>
 
 </div>
@@ -258,7 +266,7 @@ color: white;
   <h1>Themes</h1>
     <h2><a id="blue" onclick="">Blue</a></h2>
     <h2><a id="grey" onclick="">Grey</a></h2>
-    <h2><a id="inverse" onclick="">Inverse</a></h2>
+    <h2><a id="inverse" onclick="">Red-Inverse</a></h2>
     <h2><a id="red" onclick="">Red</a></h2>
     <h2><a id="yellow" onclick="">Yellow</a></h2>
 
@@ -287,6 +295,9 @@ color: white;
   <h2><a id="p3FES" onclick="titleVideo()">P3 FES</a></h2>
   <h2><a id="p3p" onclick="titleVideo()">P3P</a></h2>
   <h2><a id="p3d" onclick="titleVideo()">P3 DMN</a></h2>
+  <h2 id="p4a" onclick="titleVideo()"><a/>P4 Animation</h2>
+  <h2 id="p4g" onclick="titleVideo()"><a/>P4 Golden</h2>
+  <h2 id="p5" onclick="titleVideo()"><a/>P5 Opening</h2>
   <h2><a onclick="optionsReturn()">Return</a></h2>
 </div>
 
@@ -299,16 +310,6 @@ color: white;
 <p>relating to Computer Science.</p>
 <h2><a onclick="menuReturn()">Return</a></h2>
 </div>
-
-<!--Sound Effects-->
-<audio id="error"><source src="../Denied.mp3"/></audio>
-<audio id="kickSomeAss"><source src="../kickSomeAss.mp3"/></audio>
-<audio id="return"><source src="../Return.mp3"/></audio>
-<audio id="select"><source src="../Select.mp3"/></audio>
-<audio id="sonOfaNice"><source src="../Son of a nice.mp3"/></audio>
-
-<!--OST-->
-<audio id="audio1"><source src="#"/></audio>
 
 <script>
 
@@ -332,6 +333,112 @@ var titleScreens = document.getElementById("optionsTitleScreens");
 //OST Page Count
 var pageNumber = 1;
 
+
+function loadPreferences()
+{
+  if(localStorage.getItem("bgm") != null)
+  {
+    document.getElementById("audio1").src = localStorage.getItem("bgm");
+    document.getElementById("audio1").play();
+  }
+  else if(localStorage.getItem("bgm") == null)
+  {
+    document.getElementById("backgroundVideo").muted = true;
+
+    randomOST();
+  }
+
+  if(localStorage.getItem("video") != null)
+  {
+    document.getElementById("backgroundVideo").muted = true;
+    document.getElementById("backgroundVideo").src = localStorage.getItem("video");
+    document.getElementById("backgroundVideo").play();
+  }
+
+  else if(localStorage.getItem("video") == null)
+  {
+    document.getElementById("backgroundVideo").muted = true;
+    randomTitle();
+  }
+
+  if(localStorage.getItem("menu") != null)
+  {
+    menu.style.animation = localStorage.getItem("menu");
+    optionz.style.animation = localStorage.getItem("options");
+    optionzOST.style.animation = localStorage.getItem("optionsOST");
+    themes.style.animation = localStorage.getItem("themesPage");
+    titleScreens.style.animation = localStorage.getItem("titleScreen");
+  }
+  else
+  {
+      randomTheme();
+  }
+}
+
+function saveOSTPreferences()
+{
+  localStorage.setItem("bgm", document.getElementById("audio1").src);
+}
+
+function saveVideoPreferences()
+{
+  localStorage.setItem("video", document.getElementById("backgroundVideo").src);
+}
+
+function saveThemePreferences()
+{
+  localStorage.setItem("credits", creditsMenu.style.animation);
+  localStorage.setItem("menu", menu.style.animation);
+  localStorage.setItem("options", optionz.style.animation);
+  localStorage.setItem("optionsOST", optionzOST.style.animation);
+  localStorage.setItem("themesPage", themes.style.animation);
+  localStorage.setItem("titleScreen", titleScreens.style.animation);
+}
+
+function resetPreferences()
+{
+  playSelect();
+  localStorage.clear();
+  randomOST();
+  randomTitle();
+  randomTheme();
+
+}
+
+function randomOST()
+{
+  var ost = ["../A Way Of Life.mp3","../Beneath the Mask.mp3","../Brand New Days.mp3","../Burn My Dread.mp3","../Changing Seasons.mp3","../Dance!.mp3","../Deep breath Deep breath.mp3","../Heartbreak, Heartbreak.mp3","../Heaven.mp3","../Joy.mp3","../Kimi no Kioku.mp3","../Last Surprise.mp3","../More Than One Heart.mp3","../Never More.mp3","../Our Moment.mp3","../Soul Phase"];
+
+  var randomOST = Math.floor(Math.random() * 15);
+
+  document.getElementById("audio1").src = ost[randomOST].toString();
+  document.getElementById("audio1").play();
+
+}
+
+function randomTitle()
+{
+  var randomVideo = Math.floor(Math.random() * 6);
+
+  var videos = ["../P3 Opening.mp4","../P3 FES.mp4","../P3P.mp4","../P3 Dancing.mp4","../P4 Animation.mp4","../P4G.mp4","../P5.mp4"];
+  document.getElementById("backgroundVideo").src = videos[randomVideo].toString();
+}
+
+function randomTheme()
+{
+  var allThemes = ["10000ms ease-in-out infinite color-change04","10000ms ease-in-out infinite color-change05","10000ms ease-in-out infinite color-change","10000ms ease-in-out infinite color-change02","10000ms ease-in-out infinite color-change03"];
+
+  var randomTheme = Math.floor(Math.random() * 5);
+
+  document.getElementById("prevSongPage").style.animation = allThemes[randomTheme].toString();
+  document.getElementById("nextSongPage").style.animation = allThemes[randomTheme].toString();
+  localStorage.setItem("credits", allThemes[randomTheme].toString());
+  menu.style.animation = allThemes[randomTheme].toString();
+  optionz.style.animation = allThemes[randomTheme].toString();
+  optionzOST.style.animation = allThemes[randomTheme].toString();
+  themes.style.animation = allThemes[randomTheme].toString();
+  titleScreens.style.animation = allThemes[randomTheme].toString();
+}
 
 function chooseTheme()
 {
@@ -380,6 +487,7 @@ function chooseTheme()
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change04";
     themes.style.animation = "10000ms ease-in-out infinite color-change04";
     titleScreens.style.animation = "10000ms ease-in-out infinite color-change04";
+    saveThemePreferences();
   })
 
   grey.addEventListener("click", ()=>{
@@ -391,6 +499,7 @@ function chooseTheme()
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change05";
     themes.style.animation = "10000ms ease-in-out infinite color-change05";
     titleScreens.style.animation = "10000ms ease-in-out infinite color-change05";
+    saveThemePreferences();
   })
 
   inverse.addEventListener("click", ()=>{
@@ -402,6 +511,7 @@ function chooseTheme()
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change02";
     themes.style.animation = "10000ms ease-in-out infinite color-change02";
     titleScreens.style.animation = "10000ms ease-in-out infinite color-change02";
+    saveThemePreferences();
   })
 
   red.addEventListener("click", ()=>{
@@ -413,6 +523,7 @@ function chooseTheme()
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change";
     themes.style.animation = "10000ms ease-in-out infinite color-change";
     titleScreens.style.animation = "10000ms ease-in-out infinite color-change";
+    saveThemePreferences();
   })
 
   yellow.addEventListener("click", ()=>{
@@ -424,6 +535,7 @@ function chooseTheme()
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change03";
     themes.style.animation = "10000ms ease-in-out infinite color-change03";
     titleScreens.style.animation = "10000ms ease-in-out infinite color-change03";
+    saveThemePreferences();
   })
 
 }
@@ -685,6 +797,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../A Way Of Life.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -692,6 +805,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Heaven.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -705,6 +819,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Beneath the Mask.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -712,6 +827,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Joy.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -725,6 +841,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Brand New Days.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -732,6 +849,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Kimi no Kioku.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -745,6 +863,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Burn My Dread.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -752,6 +871,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Last Surprise.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -765,6 +885,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Changing Seasons.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -772,6 +893,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../More Than One Heart.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -785,6 +907,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Dance!.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -792,6 +915,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Never More.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -805,6 +929,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Deep breath Deep breath.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -812,6 +937,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Our Moment.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -825,6 +951,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Heartbreak, Heartbreak.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
           case 2:
           playSelect();
@@ -832,6 +959,7 @@ function optionsOST()
           var audio = document.getElementById("audio1");
           audio.src = "../Soul Phase.mp3";
           audio.play();
+          saveOSTPreferences();
           break;
         }
       });
@@ -894,7 +1022,8 @@ function toTitles()
     }
 }
 
-function titleVideo(){
+function titleVideo()
+{
     var video = document.getElementById("backgroundVideo");
 
     var p3 = document.getElementById("p3");
@@ -902,28 +1031,60 @@ function titleVideo(){
     var p3d = document.getElementById("p3d");
     var p3FES = document.getElementById("p3FES");
 
+    var p4a = document.getElementById("p4a");
+    var p4g = document.getElementById("p4g");
+
+    var p5 = document.getElementById("p5");
+
       p3.addEventListener("click", ()=>{
       playSelect();
       video.src = "../P3 Opening.mp4";
       video.play();
+      saveVideoPreferences();
     });
 
       p3p.addEventListener("click", ()=>{
       playSelect();
       video.src = "../P3P.mp4";
       video.play();
+      saveVideoPreferences();
     });
 
       p3d.addEventListener("click", ()=>{
       playSelect();
       video.src = "../P3 Dancing.mp4";
       video.play();
+      saveVideoPreferences();
     });
 
     p3FES.addEventListener("click", ()=>{
     playSelect();
     video.src = "../P3 FES.mp4";
     video.play();
+    saveVideoPreferences();
+  });
+
+
+
+    p4g.addEventListener("click", ()=>{
+    playSelect();
+    video.src = "../P4G.mp4";
+    video.play();
+    saveVideoPreferences();
+  });
+
+    p4a.addEventListener("click", ()=>{
+    playSelect();
+    video.src = "../P4 Animation.mp4";
+    video.play();
+    saveVideoPreferences();
+  });
+
+    p5.addEventListener("click", ()=>{
+    playSelect();
+    video.src = "../P5.mp4";
+    video.play();
+    saveVideoPreferences();
   });
 
 }
