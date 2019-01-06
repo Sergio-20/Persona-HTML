@@ -8,7 +8,7 @@
 
 <style>
 
-  a{
+    a{
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -29,10 +29,7 @@
     background-color: black;
   }
 
-  #characterPrompt{
-    top: 0;
-    display: absolute;
-  }
+/*Characters:*/
 
   #Aigis{
     top: 0px;
@@ -334,6 +331,117 @@
     position: absolute;
   }
 
+/*Stages:*/
+
+  #Entrance{
+    top: 900px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #Entrance:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #Gym{
+    top: 1025px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #Gym:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #Hallway{
+    top: 1150px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #Hallway:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #Lockers{
+    top: 1275px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #Lockers:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #Music-Room{
+    top: 900px;
+    left: 200px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #Music-Room:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #P4{
+    top: 1025px;
+    left: 200px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+  }
+
+  #P4:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  /*Difficulties:*/
+  #difficultyPrompt{
+    top: 1500px;
+    left: 500px;
+    position: absolute;
+    text-align: center;
+  }
+
+  #easy{
+    top: 1600px;
+    left: 400px;
+    position: absolute;
+  }
+
+  #normal{
+    top: 1600px;
+    left: 600px;
+    position: absolute;
+  }
+
+  #hard{
+    top: 1600px;
+    left: 800px;
+    position: absolute;
+  }
+
+
+  button:hover{
+    background-color: lime;
+    color: black;
+  }
+
+  /*Begin Game*/
+
+  #loadSelections{
+    top: 1800px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+  }
+
 </style>
 
 </head>
@@ -343,27 +451,27 @@
 <video autoplay loop id="videoPlayer">
 </video>
 
-<div id="characterSelection">
+<div>
 
 <a>Select your character!</a>
 
-<a><img id="Aigis" src="../Characters/Aigis/Aigis.png"/></a>
-<a><img id="Akihiko" src="../Characters/Akihiko Sanada/Akihiko.png"/></a>
-<a><img id="Chie" src="../Characters/Chie Satonaka/Chie.jpg"/></a>
-<a><img id="Elizabeth" src="../Characters/Elizabeth/Elizabeth.png"/></a>
-<a><img id="Kanji" src="../Characters/Kanji Tatsumi/Kanji.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Aigis" src="../Characters/Aigis/Aigis.png"/></a>
+<a onclick="selectedCharacter()"><img id="Akihiko" src="../Characters/Akihiko Sanada/Akihiko.png"/></a>
+<a onclick="selectedCharacter()"><img id="Chie" src="../Characters/Chie Satonaka/Chie.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Elizabeth" src="../Characters/Elizabeth/Elizabeth.png"/></a>
+<a onclick="selectedCharacter()"><img id="Kanji" src="../Characters/Kanji Tatsumi/Kanji.jpg"/></a>
 
-<a><img id="Ken" src="../Characters/Ken Amada/Ken.jpg"/></a>
-<a><img id="Koromaru" src="../Characters/Koromaru/Koromaru.png"/></a>
-<a><img id="Kuma" src="../Characters/Kuma/Kuma.jpg"/></a>
-<a><img id="Marie" src="../Characters/Marie/Marie2.jpg"/></a>
-<a><img id="Mitsuru" src="../Characters/Mitsuru Kirijo/Mitsuru.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Ken" src="../Characters/Ken Amada/Ken.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Koromaru" src="../Characters/Koromaru/Koromaru.png"/></a>
+<a onclick="selectedCharacter()"><img id="Kuma" src="../Characters/Kuma/Kuma.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Marie" src="../Characters/Marie/Marie2.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Mitsuru" src="../Characters/Mitsuru Kirijo/Mitsuru.jpg"/></a>
 
-<a><img id="Naoto" src="../Characters/Naoto Shirogane/Naoto.png"/></a>
-<a><img id="Yosuke" src="../Characters/Yosuke Hanamura/Yosuke.jpg"/></a>
-<a><img id="Yukari" src="../Characters/Yukari Takeba/Yukari.png"/></a>
-<a><img id="Yukiko" src="../Characters/Yukiko Amagi/Yukiko.jpg"/></a>
-<a><img id="Yu" src="../Characters/Yu Narukami/Yu3.png"/></a>
+<a onclick="selectedCharacter()"><img id="Naoto" src="../Characters/Naoto Shirogane/Naoto.png"/></a>
+<a onclick="selectedCharacter()"><img id="Yosuke" src="../Characters/Yosuke Hanamura/Yosuke.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Yukari" src="../Characters/Yukari Takeba/Yukari.png"/></a>
+<a onclick="selectedCharacter()"><img id="Yukiko" src="../Characters/Yukiko Amagi/Yukiko.jpg"/></a>
+<a onclick="selectedCharacter()"><img id="Yu" src="../Characters/Yu Narukami/Yu3.png"/></a>
 
 </div>
 
@@ -388,9 +496,30 @@
 </div>
 
 <h1>Select A Stage!</h1>
-<div id="stageSelection">
+<div>
+
+<img onclick="selectedStage()" id="Entrance" src="../Stages/Entrance.jpg"/>
+<img onclick="selectedStage()" id="Gym" src="../Stages/Gym.jpg"/>
+<img onclick="selectedStage()" id="Hallway" src="../Stages/Hallway.jpg"/>
+<img onclick="selectedStage()" id="Lockers" src="../Stages/Lockers.jpg"/>
+<img onclick="selectedStage()" id="Music-Room" src="../Stages/Music Room.jpg"/>
+<img onclick="selectedStage()" id="P4" src="../Stages/P4.jpg"/>
+<img onclick="selectedStage()" src=""/>
+<img onclick="selectedStage()" src=""/>
+<img onclick="selectedStage()" src=""/>
+<img onclick="selectedStage()" src=""/>
 
 </div>
+
+<h1 id="difficultyPrompt">Select a Difficulty!</h1>
+
+<div>
+<button id="easy" onclick="selectedDifficulty()">Easy</button>
+<button id="normal" onclick="selectedDifficulty()">Normal</button>
+<button id="hard" onclick="selectedDifficulty()">Hard</button>
+</div>
+
+<button id="loadSelections" onclick="loadSelections()">Let's Go!</button>
 
 <script>
 
@@ -399,12 +528,585 @@
 
   var randomInt = Math.floor(Math.random() * 3);
 
+  var characterActive = false;
+  var stageActive = false;
+
   function randomBackground()
   {
     videoPlayer.src = backgrounds[randomInt];
     videoPlayer.play();
     videoPlayer.style.minHeight = "100%";
     videoPlayer.style.minWidth = "100%";
+  }
+
+  function selectedCharacter()
+  {
+    var Aigis = document.getElementById("Aigis");
+    var Akihiko = document.getElementById("Akihiko");
+    var Chie = document.getElementById("Chie");
+    var Elizabeth = document.getElementById("Elizabeth");
+    var Kanji = document.getElementById("Kanji");
+    var Ken = document.getElementById("Ken");
+    var Koromaru = document.getElementById("Koromaru");
+    var Kuma = document.getElementById("Kuma");
+    var Marie = document.getElementById("Marie");
+    var Mitsuru = document.getElementById("Mitsuru");
+    var Naoto = document.getElementById("Naoto");
+    var Yosuke = document.getElementById("Yosuke");
+    var Yukari = document.getElementById("Yukari");
+    var Yukiko = document.getElementById("Yukiko");
+    var Yu = document.getElementById("Yu");
+
+
+        Aigis.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "10px 10px lime";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Akihiko.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "10px 10px lime";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Chie.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "10px 10px lime";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Elizabeth.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "10px 10px lime";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Kanji.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "10px 10px lime";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Ken.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "10px 10px lime";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Koromaru.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "10px 10px lime";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Kuma.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "10px 10px lime";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Marie.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "10px 10px lime";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Mitsuru.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "10px 10px lime";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Naoto.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "10px 10px lime";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Yosuke.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "10px 10px lime";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Yukari.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "10px 10px lime";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Yukiko.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "10px 10px lime";
+              Yu.style.boxShadow = "";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+        Yu.addEventListener("click", ()=>{
+          if(characterActive === false)
+          {
+              characterActive = true;
+              Aigis.style.boxShadow = "";
+              Akihiko.style.boxShadow = "";
+              Chie.style.boxShadow = "";
+              Elizabeth.style.boxShadow = "";
+              Kanji.style.boxShadow = "";
+              Ken.style.boxShadow = "";
+              Koromaru.style.boxShadow = "";
+              Kuma.style.boxShadow = "";
+              Marie.style.boxShadow = "";
+              Mitsuru.style.boxShadow = "";
+              Naoto.style.boxShadow = "";
+              Yosuke.style.boxShadow = "";
+              Yukari.style.boxShadow = "";
+              Yukiko.style.boxShadow = "";
+              Yu.style.boxShadow = "10px 10px lime";
+          }
+          else
+          {
+              characterActive = false;
+          }
+        });
+
+
+
+
+
+
+  }
+
+  function selectedDifficulty()
+  {
+    var easy = document.getElementById("easy");
+    var normal = document.getElementById("normal");
+    var hard = document.getElementById("hard");
+
+    easy.addEventListener("click", ()=>{
+      if(difficultyActive === false)
+      {
+          difficultyActive = true;
+      }
+      else
+      {
+          difficultyActive = false;
+      }
+    });
+
+    normal.addEventListener("click", ()=>{
+      if(difficultyActive === false)
+      {
+          difficultyActive = true;
+      }
+      else
+      {
+          difficultyActive = false;
+      }
+    });
+
+    hard.addEventListener("click", ()=>{
+      if(difficultyActive === false)
+      {
+          difficultyActive = true;
+      }
+      else
+      {
+          difficultyActive = false;
+      }
+    });
+
+  }
+
+  function selectedStage()
+  {
+    var entrance = document.getElementById("Entrance");
+    var gym = document.getElementById("Gym");
+    var hallway = document.getElementById("Hallway");
+    var lockers = document.getElementById("Lockers");
+    var musicRoom = document.getElementById("Music-Room");
+    var p4 = document.getElementById("P4");
+
+    entrance.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "10px 10px lime";
+          gym.style.boxShadow = "";
+          hallway.style.boxShadow = "";
+          lockers.style.boxShadow = "";
+          musicRoom.style.boxShadow = "";
+          p4.style.boxShadow = "";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
+    gym.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "";
+          gym.style.boxShadow = "10px 10px lime";
+          hallway.style.boxShadow = "";
+          lockers.style.boxShadow = "";
+          musicRoom.style.boxShadow = "";
+          p4.style.boxShadow = "";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
+    hallway.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "";
+          gym.style.boxShadow = "";
+          hallway.style.boxShadow = "10px 10px lime";
+          lockers.style.boxShadow = "";
+          musicRoom.style.boxShadow = "";
+          p4.style.boxShadow = "";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
+    lockers.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "";
+          gym.style.boxShadow = "";
+          hallway.style.boxShadow = "";
+          lockers.style.boxShadow = "10px 10px lime";
+          musicRoom.style.boxShadow = "";
+          p4.style.boxShadow = "";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
+    musicRoom.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "";
+          gym.style.boxShadow = "";
+          hallway.style.boxShadow = "";
+          lockers.style.boxShadow = "";
+          musicRoom.style.boxShadow = "10px 10px lime";
+          p4.style.boxShadow = "";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
+    p4.addEventListener("click", ()=>{
+      if(stageActive === false)
+      {
+          characterActive = true;
+          entrance.style.boxShadow = "";
+          gym.style.boxShadow = "";
+          hallway.style.boxShadow = "";
+          lockers.style.boxShadow = "";
+          musicRoom.style.boxShadow = "";
+          p4.style.boxShadow = "10px 10px lime";
+      }
+      else
+      {
+          stageActive = false;
+      }
+    });
+
   }
 
 </script>
