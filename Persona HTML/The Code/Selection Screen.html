@@ -1,0 +1,414 @@
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+  a{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    top: 100px;
+    left: 300px;
+    position: absolute;
+    height: 100px;
+    width: 10px;
+    outline: 1px solid white;
+  }
+
+  h1{
+    color: white;
+    text-align: center;
+  }
+
+  body{
+    background-color: black;
+  }
+
+  #characterPrompt{
+    top: 0;
+    display: absolute;
+  }
+
+  #Aigis{
+    top: 0px;
+    left: 300px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #aigis:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #AigisIconName{
+    color: white;
+    top: 50px;
+    left: 625px;
+    position: absolute;
+  }
+
+  #Akihiko{
+    top: 0px;
+    left: 450px;
+    position: absolute;
+    height: 100px;
+    width: 100p;
+    outline: 1px solid white;
+  }
+
+  #Akihiko:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #AkihikoIconName{
+    color: white;
+    top: 50px;
+    left: 750px;
+    position: absolute;
+  }
+
+  #Chie{
+    top: 0px;
+    left: 600px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Chie:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #ChieIconName{
+    color: white;
+    top: 50px;
+    left: 925px;
+    position: absolute;
+  }
+
+  #Elizabeth{
+    top: 0px;
+    left: 750px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Elizabeth:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #ElizabethIconName{
+    color: white;
+    top: 50px;
+    left: 1050px;
+    position: absolute;
+  }
+
+  #Kanji{
+    top: 0px;
+    left: 900px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Kanji:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #KanjiIconName{
+    color: white;
+    top: 50px;
+    left: 1225px;
+    position: absolute;
+  }
+
+  #Ken{
+    top: 150px;
+    left: 300px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Ken:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #KenIconName{
+    color: white;
+    top: 200px;
+    left: 625px;
+    position: absolute;
+  }
+
+  #Koromaru{
+    top: 150px;
+    left: 450px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Koromaru:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #KoromaruIconName{
+    color: white;
+    top: 200px;
+    left: 745px;
+    position: absolute;
+  }
+
+  #Kuma{
+    top: 150px;
+    left: 600px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Kuma:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #KumaIconName{
+    color: white;
+    top: 200px;
+    left: 915px;
+    position: absolute;
+  }
+
+  #Marie{
+    top: 150px;
+    left: 750px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Marie:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #MarieIconName{
+    color: white;
+    top: 200px;
+    left: 1065px;
+    position: absolute;
+  }
+
+  #Mitsuru{
+    top: 150px;
+    left: 900px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Mitsuru:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #MitsuruIconName{
+    color: white;
+    top: 200px;
+    left: 1210px;
+    position: absolute;
+  }
+
+  #Naoto{
+    top: 300px;
+    left: 300px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Naoto:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #NaotoIconName{
+    color: white;
+    top: 350px;
+    left: 615px;
+    position: absolute;
+  }
+
+  #Yosuke{
+    top: 300px;
+    left: 450px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Yosuke:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #YosukeIconName{
+    color: white;
+    top: 350px;
+    left: 760px;
+    position: absolute;
+  }
+
+  #Yukari{
+    top: 300px;
+    left: 600px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Yukari:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #YukariIconName{
+    color: white;
+    top: 350px;
+    left: 910px;
+    position: absolute;
+  }
+
+  #Yukiko{
+    top: 300px;
+    left: 750px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Yukiko:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #YukikoIconName{
+    color: white;
+    top: 350px;
+    left: 1060px;
+    position: absolute;
+  }
+
+  #Yu{
+    top: 300px;
+    left: 900px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    outline: 1px solid white;
+  }
+
+  #Yu:hover{
+    box-shadow: 10px 10px lime;
+  }
+
+  #YuIconName{
+    color: white;
+    top: 350px;
+    left: 1230px;
+    position: absolute;
+  }
+
+</style>
+
+</head>
+
+<body onload="randomBackground()">
+
+<video autoplay loop id="videoPlayer">
+</video>
+
+<div id="characterSelection">
+
+<a>Select your character!</a>
+
+<a><img id="Aigis" src="../Characters/Aigis/Aigis.png"/></a>
+<a><img id="Akihiko" src="../Characters/Akihiko Sanada/Akihiko.png"/></a>
+<a><img id="Chie" src="../Characters/Chie Satonaka/Chie.jpg"/></a>
+<a><img id="Elizabeth" src="../Characters/Elizabeth/Elizabeth.png"/></a>
+<a><img id="Kanji" src="../Characters/Kanji Tatsumi/Kanji.jpg"/></a>
+
+<a><img id="Ken" src="../Characters/Ken Amada/Ken.jpg"/></a>
+<a><img id="Koromaru" src="../Characters/Koromaru/Koromaru.png"/></a>
+<a><img id="Kuma" src="../Characters/Kuma/Kuma.jpg"/></a>
+<a><img id="Marie" src="../Characters/Marie/Marie2.jpg"/></a>
+<a><img id="Mitsuru" src="../Characters/Mitsuru Kirijo/Mitsuru.jpg"/></a>
+
+<a><img id="Naoto" src="../Characters/Naoto Shirogane/Naoto.png"/></a>
+<a><img id="Yosuke" src="../Characters/Yosuke Hanamura/Yosuke.jpg"/></a>
+<a><img id="Yukari" src="../Characters/Yukari Takeba/Yukari.png"/></a>
+<a><img id="Yukiko" src="../Characters/Yukiko Amagi/Yukiko.jpg"/></a>
+<a><img id="Yu" src="../Characters/Yu Narukami/Yu3.png"/></a>
+
+</div>
+
+<div>
+
+<h2 id="AigisIconName">Aigis</h2>
+<h2 id="AkihikoIconName">Akihiko</h2>
+<h2 id="ChieIconName">Chie</h2>
+<h2 id="ElizabethIconName">Elizabeth</h2>
+<h2 id="KanjiIconName">Kanji</h2>
+<h2 id="KenIconName">Ken</h2>
+<h2 id="KoromaruIconName">Koromaru</h2>
+<h2 id="KumaIconName">Kuma</h2>
+<h2 id="MarieIconName">Marie</h2>
+<h2 id="MitsuruIconName">Mitsuru</h2>
+<h2 id="NaotoIconName">Naoto</h2>
+<h2 id="YosukeIconName">Yosuke</h2>
+<h2 id="YukariIconName">Yukari</h2>
+<h2 id="YukikoIconName">Yukiko</h2>
+<h2 id="YuIconName">Yu</h2>
+
+</div>
+
+<h1>Select A Stage!</h1>
+<div id="stageSelection">
+
+</div>
+
+<script>
+
+  var backgrounds = ["../Title Screens/P3 Dancing.mp4","../Title Screens/P4 Dancing.mp4","../Title Screens/P5 Dancing.mp4"];
+  var videoPlayer = document.getElementById("videoPlayer");
+
+  var randomInt = Math.floor(Math.random() * 3);
+
+  function randomBackground()
+  {
+    videoPlayer.src = backgrounds[randomInt];
+    videoPlayer.play();
+    videoPlayer.style.minHeight = "100%";
+    videoPlayer.style.minWidth = "100%";
+  }
+
+</script>
+
+</body>
+
+</html>

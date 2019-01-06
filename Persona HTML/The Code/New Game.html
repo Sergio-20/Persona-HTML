@@ -1,0 +1,62 @@
+<html>
+<!--
+As of now, it seems no Persona 5 characters will be able to be brought fourth into the game. :(-->
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Persona HTML</title>
+
+  <style>
+
+    body{
+      background-height: 0;
+      background-image: url("../Stages/Testing-Stage.gif");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #canvas{
+      background-color: white;
+      height: 0px;
+      width: 0px;
+      top: -800px;
+      position: absolute;
+      outline: 3px solid black;
+    }
+
+    #Yu0{
+      position: relative;
+      height: 600px;
+      width: 800px;
+    }
+
+    #Yu{
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: scale(-1,1);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="Yu0">
+  <img id="Yu" src="../Characters/Yu Narukami/Yu-Narukami-Idle.gif" height="150" width="200"/>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script type= "text/javascript" src="Yu-Animations.js">
+
+  </script>
+
+</body>
+
+</html>

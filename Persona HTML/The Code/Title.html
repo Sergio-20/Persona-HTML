@@ -232,11 +232,11 @@ color: white;
 </div>
 
 <!--Sound Effects-->
-<audio id="error"><source src="../Denied.mp3"/></audio>
-<audio id="kickSomeAss"><source src="../kickSomeAss.mp3"/></audio>
-<audio id="return"><source src="../Return.mp3"/></audio>
-<audio id="select"><source src="../Select.mp3"/></audio>
-<audio id="sonOfaNice"><source src="../Son of a nice.mp3"/></audio>
+<audio id="error"><source src="../OST/Denied.mp3"/></audio>
+<audio id="kickSomeAss"><source src="../OST/kickSomeAss.mp3"/></audio>
+<audio id="return"><source src="../OST/Return.mp3"/></audio>
+<audio id="select"><source src="../OST/Select.mp3"/></audio>
+<audio id="sonOfaNice"><source src="../OST/Son of a nice.mp3"/></audio>
 
 <!--OST-->
 <audio id="audio1" loop><source src=""/></audio>
@@ -245,7 +245,7 @@ color: white;
 
 <div id="menu">
 <h1>Persona HTML</h1>
-<h2><a onclick="playkickSomeAss()">New Game</a></h2>
+<h2 id="menuNewGame"><a onclick="toSelectionScreen()"  target="_self">New Game</a></h2>
 <h2><a onclick="playError()">Load Game</a></h2>
 <h2><a onclick="playError()">Controls</a></h2>
 <h2><a onclick="options()">Options</a></h2>
@@ -303,8 +303,8 @@ color: white;
 
 <div id="credits">
 <h1>Credits</h1>
-<h2>Atlus</h2>
-<p>All Property Of Atlus That Was Used Is Theirs.<p>
+<h2>Sega</h2>
+<p>All Property Of Sega That Was Used Is Theirs.<p>
 <p>I Do Not Own Any Of It.</p>
 <p>I used it for learning purposes,</p>
 <p>relating to Computer Science.</p>
@@ -333,6 +333,14 @@ var titleScreens = document.getElementById("optionsTitleScreens");
 //OST Page Count
 var pageNumber = 1;
 
+function toSelectionScreen()
+{
+    playkickSomeAss();
+    var kickSomeAss = document.getElementById("kickSomeAss");
+    kickSomeAss.addEventListener("ended",()=>{
+      window.open("Selection Screen.html","_self");
+  });
+}
 
 function loadPreferences()
 {
@@ -363,6 +371,7 @@ function loadPreferences()
 
   if(localStorage.getItem("menu") != null)
   {
+    creditsMenu.style.animation = localStorage.getItem("credits");
     menu.style.animation = localStorage.getItem("menu");
     optionz.style.animation = localStorage.getItem("options");
     optionzOST.style.animation = localStorage.getItem("optionsOST");
@@ -407,7 +416,7 @@ function resetPreferences()
 
 function randomOST()
 {
-  var ost = ["../A Way Of Life.mp3","../Beneath the Mask.mp3","../Brand New Days.mp3","../Burn My Dread.mp3","../Changing Seasons.mp3","../Dance!.mp3","../Deep breath Deep breath.mp3","../Heartbreak, Heartbreak.mp3","../Heaven.mp3","../Joy.mp3","../Kimi no Kioku.mp3","../Last Surprise.mp3","../More Than One Heart.mp3","../Never More.mp3","../Our Moment.mp3","../Soul Phase"];
+  var ost = ["../OST/A Way Of Life.mp3","../OST/Beneath the Mask.mp3","../OST/Brand New Days.mp3","../OST/Burn My Dread.mp3","../OST/Changing Seasons.mp3","../OST/Dance!.mp3","../OST/Deep breath Deep breath.mp3","../OST/Heartbreak, Heartbreak.mp3","../OST/Heaven.mp3","../OST/Joy.mp3","../OST/Kimi no Kioku.mp3","../OST/Last Surprise.mp3","../OST/More Than One Heart.mp3","../OST/Never More.mp3","../OST/Our Moment.mp3","../OST/Soul Phase"];
 
   var randomOST = Math.floor(Math.random() * 15);
 
@@ -418,9 +427,9 @@ function randomOST()
 
 function randomTitle()
 {
-  var randomVideo = Math.floor(Math.random() * 6);
+  var randomVideo = Math.floor(Math.random() * 7);
 
-  var videos = ["../P3 Opening.mp4","../P3 FES.mp4","../P3P.mp4","../P3 Dancing.mp4","../P4 Animation.mp4","../P4G.mp4","../P5.mp4"];
+  var videos = ["../Title Screens/P3 Opening.mp4","../Title Screens/P3 FES.mp4","../Title Screens/P3P.mp4","../Title Screens/P3 Dancing.mp4","../Title Screens/P4 Animation.mp4","../Title Screens/P4G.mp4","../Title Screens/P5.mp4"];
   document.getElementById("backgroundVideo").src = videos[randomVideo].toString();
 }
 
@@ -432,7 +441,7 @@ function randomTheme()
 
   document.getElementById("prevSongPage").style.animation = allThemes[randomTheme].toString();
   document.getElementById("nextSongPage").style.animation = allThemes[randomTheme].toString();
-  localStorage.setItem("credits", allThemes[randomTheme].toString());
+  creditsMenu.style.animation = allThemes[randomTheme].toString();
   menu.style.animation = allThemes[randomTheme].toString();
   optionz.style.animation = allThemes[randomTheme].toString();
   optionzOST.style.animation = allThemes[randomTheme].toString();
@@ -795,7 +804,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../A Way Of Life.mp3";
+          audio.src = "../OST/A Way Of Life.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -803,7 +812,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Heaven.mp3";
+          audio.src = "../OST/Heaven.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -817,7 +826,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Beneath the Mask.mp3";
+          audio.src = "../OST/Beneath the Mask.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -825,7 +834,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Joy.mp3";
+          audio.src = "../OST/Joy.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -839,7 +848,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Brand New Days.mp3";
+          audio.src = "../OST/Brand New Days.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -847,7 +856,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Kimi no Kioku.mp3";
+          audio.src = "../OST/Kimi no Kioku.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -861,7 +870,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Burn My Dread.mp3";
+          audio.src = "../OST/Burn My Dread.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -869,7 +878,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Last Surprise.mp3";
+          audio.src = "../OST/Last Surprise.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -883,7 +892,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Changing Seasons.mp3";
+          audio.src = "../OST/Changing Seasons.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -891,7 +900,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../More Than One Heart.mp3";
+          audio.src = "../OST/More Than One Heart.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -905,7 +914,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Dance!.mp3";
+          audio.src = "../OST/Dance!.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -913,7 +922,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Never More.mp3";
+          audio.src = "../OST/Never More.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -927,7 +936,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Deep breath Deep breath.mp3";
+          audio.src = "../OST/Deep breath Deep breath.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -935,7 +944,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Our Moment.mp3";
+          audio.src = "../OST/Our Moment.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -949,7 +958,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Heartbreak, Heartbreak.mp3";
+          audio.src = "../OST/Heartbreak, Heartbreak.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -957,7 +966,7 @@ function optionsOST()
           playSelect();
           video.muted = true;
           var audio = document.getElementById("audio1");
-          audio.src = "../Soul Phase.mp3";
+          audio.src = "../OST/Soul Phase.mp3";
           audio.play();
           saveOSTPreferences();
           break;
@@ -1038,28 +1047,28 @@ function titleVideo()
 
       p3.addEventListener("click", ()=>{
       playSelect();
-      video.src = "../P3 Opening.mp4";
+      video.src = "../Title Screens/P3 Opening.mp4";
       video.play();
       saveVideoPreferences();
     });
 
       p3p.addEventListener("click", ()=>{
       playSelect();
-      video.src = "../P3P.mp4";
+      video.src = "../Title Screens/P3P.mp4";
       video.play();
       saveVideoPreferences();
     });
 
       p3d.addEventListener("click", ()=>{
       playSelect();
-      video.src = "../P3 Dancing.mp4";
+      video.src = "../Title Screens/P3 Dancing.mp4";
       video.play();
       saveVideoPreferences();
     });
 
     p3FES.addEventListener("click", ()=>{
     playSelect();
-    video.src = "../P3 FES.mp4";
+    video.src = "../Title Screens/P3 FES.mp4";
     video.play();
     saveVideoPreferences();
   });
@@ -1068,21 +1077,21 @@ function titleVideo()
 
     p4g.addEventListener("click", ()=>{
     playSelect();
-    video.src = "../P4G.mp4";
+    video.src = "../Title Screens/P4G.mp4";
     video.play();
     saveVideoPreferences();
   });
 
     p4a.addEventListener("click", ()=>{
     playSelect();
-    video.src = "../P4 Animation.mp4";
+    video.src = "../Title Screens/P4 Animation.mp4";
     video.play();
     saveVideoPreferences();
   });
 
     p5.addEventListener("click", ()=>{
     playSelect();
-    video.src = "../P5.mp4";
+    video.src = "../Title Screens/P5.mp4";
     video.play();
     saveVideoPreferences();
   });
