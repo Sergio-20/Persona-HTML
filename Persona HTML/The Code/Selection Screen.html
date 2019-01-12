@@ -339,6 +339,138 @@
     width: 100%;
   }
 
+  /* Media Queries */
+
+  /* Tablets */
+
+  @media screen and (max-width: 800px){
+
+    body{
+      overflow-x: hidden;
+    }
+    /* Select Character Portion */
+    #videoPlayer{
+      margin-left: 0em;
+      margin-top: -2em;
+      height: 31em;
+      width: 19em;
+    }
+
+    #characters, #charNames{
+      display: block;
+      position: relative;
+      margin-left: -17em;
+      margin-top: -71%;
+    }
+    /* Select Stage Portion */
+    #rain{
+      display: block;
+      position: relative;
+      margin-left: 0em;
+      margin-top: 70%;
+      z-index: -1;
+    }
+
+    #stages{
+      position: relative;
+      left: -17em;
+      top: -15em;
+      z-index: 1;
+    }
+
+    #stagesPrompt{
+      position: relative;
+      left: 1em;
+      top: 20em;
+      z-index: 1;
+    }
+    /* Select Difficulty Portion */
+    #difficultyPrompt{
+      position: relative;
+      left: 0.5em;
+      top: 0em;
+    }
+
+    #easy, #normal, #hard{
+      position: relative;
+      left: 22em;
+      top: 2em;
+    }
+
+    /* Load Selections */
+    #loadSelections{
+      position: relative;
+      left: 0em;
+      top: 10em;
+    }
+  }
+
+  /* Smartphones */
+
+  @media screen and (max-width: 500px){
+    body{
+      overflow-x: hide;
+    }
+    /* Select Character Portion */
+    #videoPlayer{
+      margin-left: 0em;
+      margin-top: -2em;
+      height: 31em;
+      width: 19em;
+    }
+
+    #characters > img, #charNames{
+      display: block;
+      position: relative;
+      margin-left: -17em;
+      margin-top: -30em;
+      width: 0em;
+    }
+    /* Select Stage Portion */
+    #rain{
+      display: block;
+      position: relative;
+      margin-left: 0em;
+      margin-top: 70%;
+      z-index: -1;
+    }
+
+    #stages{
+      position: relative;
+      left: -17em;
+      top: -15em;
+      z-index: 1;
+    }
+
+    #stagesPrompt{
+      position: relative;
+      left: 1em;
+      top: 20em;
+      z-index: 1;
+    }
+    /* Select Difficulty Portion */
+    #difficultyPrompt{
+      position: relative;
+      left: 0.5em;
+      top: 0em;
+    }
+
+    #easy, #normal, #hard{
+      position: relative;
+      left: 22em;
+      top: 2em;
+    }
+
+    /* Load Selections */
+    #loadSelections{
+      position: relative;
+      left: 0em;
+      top: 10em;
+    }
+  }
+  }
+
+
 </style>
 
 </head>
@@ -348,9 +480,9 @@
 <video autoplay loop id="videoPlayer">
 </video>
 
-<div>
+<div id="characters">
 
-<a>Select your character!</a>
+<a id="charPrompt">Select your character!</a>
 
 <a onclick="selectedCharacter()"><img id="Aigis" src="../Characters/Aigis/Aigis.png"/></a>
 <a onclick="selectedCharacter()"><img id="Chie" src="../Characters/Chie Satonaka/Chie.png"/></a>
@@ -366,7 +498,7 @@
 
 </div>
 
-<div>
+<div id="charNames">
 
 <h2 id="AigisIconName">Aigis</h2>
 <h2 id="ChieIconName">Chie</h2>
@@ -380,15 +512,18 @@
 
 </div>
 
-<h1>Select A Stage!</h1>
 <div>
 
+<h1 id="stagesPrompt">Select A Stage!</h1>
+
+<div id="stages">
 <img onclick="selectedStage()" id="Entrance" src="../Stages/Entrance.jpg"/>
 <img onclick="selectedStage()" id="Gym" src="../Stages/Gym.jpg"/>
 <img onclick="selectedStage()" id="Hallway" src="../Stages/Hallway.jpg"/>
 <img onclick="selectedStage()" id="Lockers" src="../Stages/Lockers.jpg"/>
 <img onclick="selectedStage()" id="Music-Room" src="../Stages/Music Room.jpg"/>
 <img onclick="selectedStage()" id="P4" src="../Stages/P4.jpg"/>
+</div>
 
 <img id="rain" onclick="selectedStage()" src="../Title Screens/rain.gif"/>
 
