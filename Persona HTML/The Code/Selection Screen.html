@@ -481,7 +481,7 @@
 <video loop id="videoPlayer">
 </video>
 
-<audio loop id="audio" src="">
+<audio loop id="audio">
 </audio>
 
 <div id="characters">
@@ -547,6 +547,8 @@
 
   let backgrounds = ["../Title Screens/P3 Dancing.mp4","../Title Screens/P4 Dancing.mp4","../Title Screens/P5 Dancing.mp4"];
   let bgm = ["../OST/P3 Dancing.mp3","../OST/P4 Dancing.mp3","../OST/P5 Dancing.mp3"];
+
+  let audio = document.getElementById("audio");
   let videoPlayer = document.getElementById("videoPlayer");
 
   let randomInt = Math.floor(Math.random() * 3);
@@ -562,8 +564,7 @@
     videoPlayer.style.minHeight = "100%";
     videoPlayer.style.minWidth = "100%";
 
-    let audio = document.getElementById("audio");
-    audio.src=backgrounds[randomInt];
+    audio.src = backgrounds[randomInt];
     audio.play();
   }
 
@@ -578,7 +579,6 @@
     let Yosuke = document.getElementById("Yosuke");
     let Yukiko = document.getElementById("Yukiko");
     let Yu = document.getElementById("Yu");
-
 
         Aigis.addEventListener("click", ()=>{
           if(characterActive === false)

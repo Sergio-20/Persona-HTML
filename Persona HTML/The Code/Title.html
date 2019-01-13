@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -293,8 +294,10 @@ color: white;
 <!--OST-->
 <audio id="audio1" loop><source src=""/></audio>
 
+<!--Menu-->
 <button id="callMenu" type="button" class=" glyphicon glyphicon-th-list" onclick="menuAppear()">Menu</button>
 
+<!--Design of Menus-->
 <div id="menu">
 <h1>Persona HTML</h1>
 <h2 id="menuNewGame"><a onclick="toSelectionScreen()"  target="_self">New Game</a></h2>
@@ -395,26 +398,26 @@ function toSelectionScreen()
 
 function loadPreferences()
 {
-  if(localStorage.getItem("bgm") != null)
+  if(localStorage.getItem("bgm") !== null)
   {
     document.getElementById("audio1").src = localStorage.getItem("bgm");
     document.getElementById("audio1").play();
   }
-  else if(localStorage.getItem("bgm") == null)
+  else if(localStorage.getItem("bgm") === null)
   {
     document.getElementById("backgroundVideo").muted = true;
 
     randomOST();
   }
 
-  if(localStorage.getItem("video") != null)
+  if(localStorage.getItem("video") !== null)
   {
     document.getElementById("backgroundVideo").muted = true;
     document.getElementById("backgroundVideo").src = localStorage.getItem("video");
     document.getElementById("backgroundVideo").play();
   }
 
-  else if(localStorage.getItem("video") == null)
+  else if(localStorage.getItem("video") === null)
   {
     document.getElementById("backgroundVideo").muted = true;
     randomTitle();
