@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -477,8 +478,11 @@
 
 <body onload="randomBackground()">
 
-<video autoplay loop id="videoPlayer">
+<video loop id="videoPlayer">
 </video>
+
+<audio loop id="audio" src="">
+</audio>
 
 <div id="characters">
 
@@ -542,6 +546,7 @@
 <script>
 
   let backgrounds = ["../Title Screens/P3 Dancing.mp4","../Title Screens/P4 Dancing.mp4","../Title Screens/P5 Dancing.mp4"];
+  let bgm = ["../OST/P3 Dancing.mp3","../OST/P4 Dancing.mp3","../OST/P5 Dancing.mp3"];
   let videoPlayer = document.getElementById("videoPlayer");
 
   let randomInt = Math.floor(Math.random() * 3);
@@ -552,9 +557,14 @@
   function randomBackground()
   {
     videoPlayer.src = backgrounds[randomInt];
+    videoPlayer.muted = true;
     videoPlayer.play();
     videoPlayer.style.minHeight = "100%";
     videoPlayer.style.minWidth = "100%";
+
+    let audio = document.getElementById("audio");
+    audio.src=backgrounds[randomInt];
+    audio.play();
   }
 
   function selectedCharacter()
