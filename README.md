@@ -5,3 +5,11 @@ Browser compatibility is primarily with Mozilla Firefox, however Google Chrome w
 
 Thus, if you are using Google Chrome, but it seems to be displayed stangely, then try using Mozilla Firefox. The working version
 for Google Chrome has just not been released at that point yet.
+
+In order to play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
+
+Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
+
+Steps:
+1) On Google Chrome, type the following into the address bar:  chrome://flags/#autoplay-policy
+2) Next to "Autoplay Policy", change the value from "Default", to "No user gesture is required".
