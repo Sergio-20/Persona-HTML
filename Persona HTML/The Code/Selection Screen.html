@@ -7,6 +7,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Selection Screen</title>
+
 <style>
 
     a{
@@ -476,7 +478,7 @@
 
 </head>
 
-<body onload="randomBackground()">
+<body onload="randomBackground();resetSelections()">
 
 <video loop id="videoPlayer">
 </video>
@@ -521,12 +523,12 @@
 <h1 id="stagesPrompt">Select A Stage!</h1>
 
 <div id="stages">
-<img onclick="selectedStage()" id="Entrance" src="../Stages/Entrance.jpg"/>
-<img onclick="selectedStage()" id="Gym" src="../Stages/Gym.jpg"/>
-<img onclick="selectedStage()" id="Hallway" src="../Stages/Hallway.jpg"/>
-<img onclick="selectedStage()" id="Lockers" src="../Stages/Lockers.jpg"/>
-<img onclick="selectedStage()" id="Music-Room" src="../Stages/Music Room.jpg"/>
-<img onclick="selectedStage()" id="P4" src="../Stages/P4.jpg"/>
+<img onclick="stageSelect()" id="Entrance" src="../Stages/Entrance.jpg"/>
+<img onclick="stageSelect()" id="Gym" src="../Stages/Gym.jpg"/>
+<img onclick="stageSelect()" id="Hallway" src="../Stages/Hallway.jpg"/>
+<img onclick="stageSelect()" id="Lockers" src="../Stages/Lockers.jpg"/>
+<img onclick="stageSelect()" id="Music-Room" src="../Stages/Music Room.jpg"/>
+<img onclick="stageSelect()" id="P4" src="../Stages/P4.jpg"/>
 </div>
 
 <img id="rain" onclick="selectedStage()" src="../Title Screens/rain.gif"/>
@@ -556,6 +558,31 @@
   let characterActive = false;
   let stageActive = false;
 
+  let beginGame = document.getElementById("loadSelections");
+
+  /*Character Animations*/
+  let AigisAnim = ["../Characters/Aigis/Aigis-Idle.gif"];
+  let ChieAnim = ["../Characters/Chie Satonaka/Chie-Idle.gif"];
+  let KumaAnim = ["../Characters/Kuma/Kuma-Idle.gif"];
+  let LabrysAnim = ["../Characters/Labrys/Labrys-Idle.gif"];
+  let MitsuruAnim = ["../Characters/Mitsuru Kirijo/Mitsuru-Idle.gif"];
+  let ShoAnim = ["../Characters/Sho Minazuki/Sho-Idle.gif"];
+  let YosukeAnim = ["../Characters/Yosuke Hanamura/Yosuke-Idle.gif"];
+  let YukikoAnim = ["../Characters/Yukiko Amagi/Yukiko-Idle.gif"];
+  let YuAnim = ["../Characters/Yu Narukami/Yu-Narukami-Idle.gif"];
+
+  let botAnim = [["../Characters/Aigis/Aigis-Idle.gif","../Characters/Chie Satonaka/Chie-Idle.gif","../Characters/Kuma/Kuma-Idle.gif"],
+["../Characters/Labrys/Labrys-Idle.gif","../Characters/Mitsuru Kirijo/Mitsuru-Idle.gif","../Characters/Sho Minazuki/Sho-Idle.gif"],
+["../Characters/Yosuke Hanamura/Yosuke-Idle.gif","../Characters/Yukiko Amagi/Yukiko-Idle.gif","../Characters/Yu Narukami/Yu-Narukami-Idle.gif"]];
+
+  let currentAnim = "";
+  let currentBotAnim = "";
+
+  /*End of character animations*/
+
+  let stage = ["../Stages/Entrance.jpg","../Stages/Gym.jpg","../Stages/Hallway.jpg","../Stages/Lockers.jpg","../Stages/Music Room.jpg","../Stages/P4.jpg"];
+  let selectedStage = "";
+
   function randomBackground()
   {
     videoPlayer.src = backgrounds[randomInt];
@@ -566,6 +593,13 @@
 
     audio.src = backgrounds[randomInt];
     audio.play();
+  }
+
+  function generateBot()
+  {
+    let randomRow = Math.floor(Math.random() * 3);
+    let randomColumn = Math.floor(Math.random() * 3);
+    currentBotAnim = botAnim[randomRow][randomColumn];
   }
 
   function selectedCharacter()
@@ -593,6 +627,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Aigis-Save", AigisAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Aigis-Save");
           }
           else
           {
@@ -613,6 +650,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Chie-Save", ChieAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Chie-Save");
           }
           else
           {
@@ -633,6 +673,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Kuma-Save", KumaAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Kuma-Save");
           }
           else
           {
@@ -653,6 +696,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Labrys-Save", LabrysAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Labrys-Save");
           }
           else
           {
@@ -673,6 +719,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Mitsuru-Save", MitsuruAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Mitsuru-Save");
           }
           else
           {
@@ -693,6 +742,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Sho-Save", ShoAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Sho-Save");
           }
           else
           {
@@ -713,6 +765,9 @@
               Yosuke.style.boxShadow = "10px 10px lime";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Yosuke-Save", YosukeAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Yosuke-Save");
           }
           else
           {
@@ -721,6 +776,7 @@
         });
 
         Yukiko.addEventListener("click", ()=>{
+
           if(characterActive === false)
           {
               characterActive = true;
@@ -733,6 +789,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "10px 10px lime";
               Yu.style.boxShadow = "";
+
+              sessionStorage.setItem("Yukiko-Save", YukikoAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Yukiko-Save");
           }
           else
           {
@@ -753,6 +812,9 @@
               Yosuke.style.boxShadow = "";
               Yukiko.style.boxShadow = "";
               Yu.style.boxShadow = "10px 10px lime";
+
+              sessionStorage.setItem("Yu-Save", YuAnim[0].toString() );
+              currentAnim = sessionStorage.getItem("Yu-Save");
           }
           else
           {
@@ -808,7 +870,7 @@
 
   }
 
-  function selectedStage()
+  function stageSelect()
   {
     let entrance = document.getElementById("Entrance");
     let gym = document.getElementById("Gym");
@@ -827,6 +889,9 @@
           lockers.style.boxShadow = "";
           musicRoom.style.boxShadow = "";
           p4.style.boxShadow = "";
+
+          sessionStorage.setItem("Entrance", stage[0].toString());
+          selectedStage = sessionStorage.getItem("Entrance");
       }
       else
       {
@@ -844,6 +909,9 @@
           lockers.style.boxShadow = "";
           musicRoom.style.boxShadow = "";
           p4.style.boxShadow = "";
+
+          sessionStorage.setItem("Gym", stage[1].toString());
+          selectedStage = sessionStorage.getItem("Gym");
       }
       else
       {
@@ -861,6 +929,9 @@
           lockers.style.boxShadow = "";
           musicRoom.style.boxShadow = "";
           p4.style.boxShadow = "";
+
+          sessionStorage.setItem("Hallway", stage[2].toString());
+          selectedStage = sessionStorage.getItem("Hallway");
       }
       else
       {
@@ -878,6 +949,9 @@
           lockers.style.boxShadow = "10px 10px lime";
           musicRoom.style.boxShadow = "";
           p4.style.boxShadow = "";
+
+          sessionStorage.setItem("Lockers", stage[3].toString());
+          selectedStage = sessionStorage.getItem("Lockers");
       }
       else
       {
@@ -895,6 +969,9 @@
           lockers.style.boxShadow = "";
           musicRoom.style.boxShadow = "10px 10px lime";
           p4.style.boxShadow = "";
+
+          sessionStorage.setItem("Music Room", stage[4].toString());
+          selectedStage = sessionStorage.getItem("Music Room");
       }
       else
       {
@@ -912,6 +989,9 @@
           lockers.style.boxShadow = "";
           musicRoom.style.boxShadow = "";
           p4.style.boxShadow = "10px 10px lime";
+
+          sessionStorage.setItem("P4", stage[5].toString());
+          selectedStage = sessionStorage.getItem("P4");
       }
       else
       {
@@ -919,6 +999,56 @@
       }
     });
 
+  }
+
+  function loadSelections()
+  {
+    beginGame.addEventListener("click",()=>{
+
+      //Clear Screen
+      document.body.innerHTML = "";
+      document.body.style.animation = "none";
+      document.body.style.backgroundColor = "white";
+      document.title = "Gameplay";
+
+      /*Method Calls*/
+      generateBot();
+
+      //Create Selections
+      var player = document.createElement("IMG");
+      var bot = document.createElement("IMG");
+      var stageImg = document.createElement("IMG");
+
+      //Modify Selections
+      player.setAttribute("id", "player");
+      player.setAttribute("src", currentAnim);
+      player.setAttribute("height", "100");
+      player.setAttribute("width", "100");
+
+      bot.setAttribute("id", "bot");
+      bot.setAttribute("src", currentBotAnim);
+      bot.setAttribute("height", "100");
+      bot.setAttribute("width", "100");
+
+      stageImg.setAttribute("id", "stageImg");
+      stageImg.setAttribute("src", selectedStage);
+      stageImg.setAttribute("height", "0%");
+      stageImg.setAttribute("width", "0%");
+      document.body.setAttribute("style", "background-image: url("+ selectedStage +"); background-repeat: no-repeat; background-size: cover;");
+
+      //Load Selections
+      document.body.appendChild(player);
+      document.body.appendChild(bot);
+      document.body.appendChild(stageImg);
+
+    });
+  }
+
+  function resetSelections()
+  {
+    currentAnim = "";
+    currentBotAnim = "";
+    selectedStage = "";
   }
 
 </script>
