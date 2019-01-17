@@ -34,6 +34,12 @@ let currentBotAnim = "";
 let stage = ["../Stages/Entrance.jpg","../Stages/Gym.jpg","../Stages/Hallway.jpg","../Stages/Lockers.jpg","../Stages/Music Room.jpg","../Stages/P4.jpg"];
 let selectedStage = "";
 
+
+//Created Elements
+let player = document.createElement("IMG");
+let bot = document.createElement("IMG");
+let stageImg = document.createElement("IMG");
+
 function randomBackground()
 {
   videoPlayer.src = backgrounds[randomInt];
@@ -468,10 +474,6 @@ function loadSelections()
     OST();
     /*End od Method Calls*/
 
-    //Create Selections
-    let player = document.createElement("IMG");
-    let bot = document.createElement("IMG");
-    let stageImg = document.createElement("IMG");
 
     //Modify Selections
     player.setAttribute("id", "player");
