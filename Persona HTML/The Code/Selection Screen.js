@@ -26,6 +26,14 @@ let botAnim = [["../Characters/Aigis/Aigis-Idle.gif","../Characters/Chie Satonak
 ["../Characters/Labrys/Labrys-Idle.gif","../Characters/Mitsuru Kirijo/Mitsuru-Idle.gif","../Characters/Sho Minazuki/Sho-Idle.gif"],
 ["../Characters/Yosuke Hanamura/Yosuke-Idle.gif","../Characters/Yukiko Amagi/Yukiko-Idle.gif","../Characters/Yu Narukami/Yu-Narukami-Idle.gif"]];
 
+let = botNameArray = [
+  ["Aigis","Chie","Kuma"],
+  ["Labrys","Mitsuru","Sho"],
+  ["Yosuke","Yukiko","Yu"]
+];
+
+let botName = "";
+
 let currentAnim = "";
 let currentBotAnim = "";
 
@@ -39,6 +47,8 @@ let selectedStage = "";
 let player = document.createElement("IMG");
 let bot = document.createElement("IMG");
 let stageImg = document.createElement("IMG");
+let theBotName = document.createElement("H3");
+let username = document.createElement("H3");
 
 function randomBackground()
 {
@@ -57,6 +67,7 @@ function generateBot()
   let randomRow = Math.floor(Math.random() * 3);
   let randomColumn = Math.floor(Math.random() * 3);
   currentBotAnim = botAnim[randomRow][randomColumn];
+  botName = botNameArray[randomRow][randomColumn];
 }
 
 function selectedCharacter()
@@ -492,6 +503,12 @@ function loadSelections()
     stageImg.setAttribute("width", "0%");
     document.body.setAttribute("style", "background-image: url("+ selectedStage +"); background-repeat: no-repeat; background-size: cover;");
 
+    theBotName.innerHTML = botName;
+    theBotName.setAttribute("style", "background-color: grey; color: white; position: absolute; right: 0.5em;");
+
+    username.innerHTML = JSON.parse(localStorage.getItem("client"));
+    username.setAttribute("style", "background-color: grey; color: white; position: absolute; left: 0.5em;");
+
     //Load Selections
     document.body.appendChild(player);
     document.body.appendChild(bot);
@@ -500,6 +517,8 @@ function loadSelections()
     //Append created health bars found in Gameplay.js
     document.body.appendChild(userHealthBar);
     document.body.appendChild(cpuHealthBar);
+    document.body.appendChild(theBotName);
+    document.body.appendChild(username);
     document.body.appendChild(audio);
 
     //Spawn Points
@@ -511,6 +530,7 @@ function loadSelections()
 
 function resetSelections()
 {
+  botName = "";
   currentAnim = "";
   currentBotAnim = "";
   selectedStage = "";

@@ -33,6 +33,7 @@ function toSelectionScreen()
 
 function loadPreferences()
 {
+
   if(localStorage.getItem("bgm") !== null)
   {
     document.getElementById("audio1").src = localStorage.getItem("bgm");
