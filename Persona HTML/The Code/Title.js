@@ -7,6 +7,10 @@ let themesClicked = false;
 let titlesClicked = false;
 
 
+//Username for the client
+let clientName = null;
+
+
 //Document Variables
 let creditsMenu = document.getElementById("credits");
 let menu = document.getElementById("menu");
@@ -54,7 +58,7 @@ function loadPreferences()
     randomTitle();
   }
 
-  if(localStorage.getItem("menu") != null)
+  if(localStorage.getItem("menu") !== null)
   {
     creditsMenu.style.animation = localStorage.getItem("credits");
     menu.style.animation = localStorage.getItem("menu");
@@ -67,6 +71,18 @@ function loadPreferences()
   {
       randomTheme();
   }
+
+  if(JSON.parse(localStorage.getItem("client")) === null)
+  {
+    clientName = JSON.stringify(prompt("Welcome to Persona HTML! Please, type in a username for yourself below:"));
+    localStorage.setItem("client", clientName);
+  }
+  else
+  {
+    alert("Welcome back, " + JSON.parse(localStorage.getItem("client")) + "!");
+  }
+
+
 }
 
 function saveOSTPreferences()

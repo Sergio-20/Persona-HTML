@@ -4,6 +4,7 @@ let userHealthBar = document.createElement("PROGRESS");
 let cpuHealthBar = document.createElement("PROGRESS");
 
 let playerXPos = 0;
+let playerYpos = 28;
 
 let ost = [["../OST/A Way Of Life.mp3", "../OST/Beneath the Mask.mp3", "../OST/Brand New Days.mp3", "../OST/Burn My Dread.mp3"],
 ["../OST/Changing Seasons.mp3", "../OST/Dance!.mp3", "../OST/Deep breath Deep breath.mp3", "../OST/Heartbreak, Heartbreak.mp3"],
@@ -147,6 +148,12 @@ function onKeyDownHandler(e)
 
   }
 
+  else if(e.keyCode === 68)//"D" Button Press
+  {
+    playerYpos += 2;
+    player.style.top = playerYpos + "em";
+  }
+
   if(e.keyCode === 37)//Left Arrow Key
   {
 
@@ -283,50 +290,17 @@ function onKeyDownHandler(e)
 
   else if(e.keyCode === 38)//Up Arrow Key
   {
-      //Jump
+      playerYpos -= 2;
+      player.style.top = playerYpos + "em";
   }
 
-  else if(e.keyCode === 36)//Down Arrow Key
-  {
-    //Crouch
-  }
 
 }
 
 function onKeyUpHandler(e)
 {
-  if(e.keyCode === 65){
 
-    if(currentAnim.includes("Aigis")){
-      player.src = AigisAnim[0].toString();
-    }
-    else if(currentAnim.includes("Chie")){
-      player.src = ChieAnim[0];
-    }
-    else if(currentAnim.includes("Kuma")){
-      player.src = KumaAnim[0];
-    }
-    else if(currentAnim.includes("Labrys")){
-      player.src = LabrysAnim[0];
-    }
-    else if(currentAnim.includes("Mitsuru")){
-      player.src = MitsuruAnim[0];
-    }
-    else if(currentAnim.includes("Sho")){
-      player.src = ShoAnim[0];
-    }
-    else if(currentAnim.includes("Yosuke")){
-      player.src = YosukeAnim[0];
-    }
-    else if(currentAnim.includes("Yukiko")){
-      player.src = YukikoAnim[0];
-    }
-    else if(currentAnim.includes("Yu")){
-      player.src = YuAnim[0];
-    }
-  }
-
-  else if(e.keyCode === 83){
+  if(e.keyCode === 65 || e.keyCode === 83 || e.keyCode === 68 || e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 38){
 
     if(currentAnim.includes("Aigis")){
       player.src = AigisAnim[0].toString();
