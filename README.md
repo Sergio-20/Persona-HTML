@@ -1,12 +1,9 @@
 # Persona-HTML
-An ongoing project to make a Persona game using HTML, CSS, and Javascript for learning purposes as a student.
+An ongoing project to make a Persona game using HTML, CSS, and Javascript for learning purposes.
 
-Browser compatibility is primarily with Mozilla Firefox, however Google Chrome will also be taken into consideration.
+Browser compatibility is primarily with Mozilla Firefox and Google Chrome.
 
-Thus, if you are using Google Chrome, but it seems to be displayed stangely, then try using Mozilla Firefox. The working version
-for Google Chrome has just not been released at that point yet.
-
-In order to play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
+In order to properly play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
 
 Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
 
