@@ -68,12 +68,6 @@ function battleEnd()
 
 }
 
-
-function displayNames()
-{
-
-}
-
 function invisibleWalls()
 {
 
@@ -146,12 +140,6 @@ function onKeyDownHandler(e)
         player.src = "../Characters/Yu Narukami/yu-block.gif";
       }
 
-  }
-
-  else if(e.keyCode === 68)//"D" Button Press
-  {
-    playerYpos += 2;
-    player.style.top = playerYpos + "em";
   }
 
   if(e.keyCode === 37)//Left Arrow Key
@@ -294,6 +282,11 @@ function onKeyDownHandler(e)
       player.style.top = playerYpos + "em";
   }
 
+  else if(e.keyCode === 40)//Down Arrow Key
+  {
+    playerYpos += 2;
+    player.style.top = playerYpos + "em";
+  }
 
 }
 
@@ -357,9 +350,3 @@ function setHealthbar()
 
   cpuHealthBar.setAttribute("style", "display: block; position: absolute; top: 1em; right: 0.5em; background-color: red; transform: scaleX(-1);");
 }
-
-
-let cpu001 = new CPU("Mitsuru",7,7,115,);
-let user001 = new Player("Yu",8,8,100);
-console.log(cpu001.attackPlayer());
-console.log(user001.attackCPU());

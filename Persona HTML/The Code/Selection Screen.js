@@ -39,7 +39,7 @@ let currentBotAnim = "";
 
 /*End of character animations*/
 
-let stage = ["../Stages/Entrance.jpg","../Stages/Gym.jpg","../Stages/Hallway.jpg","../Stages/Lockers.jpg","../Stages/Music Room.jpg","../Stages/P4.jpg"];
+let stage = ["../Stages/Entrance.jpg","../Stages/Gym.jpg","../Stages/Hallway.jpg","../Stages/Lockers.jpg","../Stages/Music-Room.jpg","../Stages/P4.jpg"];
 let selectedStage = "";
 
 
