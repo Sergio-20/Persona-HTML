@@ -68,11 +68,6 @@ function battleEnd()
 
 }
 
-function invisibleWalls()
-{
-
-}
-
 //Used for player actions
 function onKeyDownHandler(e)
 {
@@ -142,147 +137,148 @@ function onKeyDownHandler(e)
 
   }
 
-  if(e.keyCode === 37)//Left Arrow Key
+  if(e.keyCode === 37 && playerXPos >= -32)//Left Arrow Key
   {
 
     if(currentAnim === AigisAnim[0].toString()){
     player.src = "../Characters/Aigis/aigis-run.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 12;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === ChieAnim[0].toString()){
     player.src = "../Characters/Chie Satonaka/chie-stretch.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 22;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === KumaAnim[0].toString()){
     player.src = "../Characters/Kuma/kuma-walking.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 8;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === LabrysAnim[0].toString()){
     player.src = "../Characters/Labrys/labrys-walking.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === MitsuruAnim[0].toString()){
     player.src = "../Characters/Mitsuru Kirijo/mitsuru-run.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 28;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === ShoAnim[0].toString()){
     player.src = "../Characters/Sho Minazuki/sho-walking.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 28;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YosukeAnim[0].toString()){
     player.src = "../Characters/Yosuke Hanamura/yosuke-walkback.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YukikoAnim[0].toString()){
     player.src = "../Characters/Yukiko Amagi/yukiko-walking.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YuAnim[0].toString()){
     player.src = "../Characters/Yu Narukami/yu-run.gif";
     player.style.transform = "scaleX(1)";
-    playerXPos -= 2;
+    playerXPos -= 20;
     player.style.left = playerXPos + "px";
     }
 
   }
 
-  else if(e.keyCode === 39)//Right Arrow Key
+  else if(e.keyCode === 39 && playerXPos <= 1140)//Right Arrow Key
   {
+
     if(currentAnim === AigisAnim[0].toString()){
     player.src = "../Characters/Aigis/aigis-run.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 12;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === ChieAnim[0].toString()){
     player.src = "../Characters/Chie Satonaka/chie-stretch.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 22;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === KumaAnim[0].toString()){
     player.src = "../Characters/Kuma/kuma-walking.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 8;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === LabrysAnim[0].toString()){
     player.src = "../Characters/Labrys/labrys-walking.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === MitsuruAnim[0].toString()){
     player.src = "../Characters/Mitsuru Kirijo/mitsuru-run.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 28;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === ShoAnim[0].toString()){
     player.src = "../Characters/Sho Minazuki/sho-walking.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 28;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YosukeAnim[0].toString()){
     player.src = "../Characters/Yosuke Hanamura/yosuke-walkback.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YukikoAnim[0].toString()){
     player.src = "../Characters/Yukiko Amagi/yukiko-walking.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 16;
     player.style.left = playerXPos + "px";
     }
 
     else if(currentAnim === YuAnim[0].toString()){
     player.src = "../Characters/Yu Narukami/yu-run.gif";
     player.style.transform = "scaleX(-1)";
-    playerXPos += 2;
+    playerXPos += 20;
     player.style.left = playerXPos + "px";
     }
   }
 
-  else if(e.keyCode === 38)//Up Arrow Key
+  else if(e.keyCode === 38 && playerYpos >= 10)//Up Arrow Key
   {
       playerYpos -= 2;
       player.style.top = playerYpos + "em";
   }
 
-  else if(e.keyCode === 40)//Down Arrow Key
+  else if(e.keyCode === 40 && playerYpos <= 28)//Down Arrow Key
   {
     playerYpos += 2;
     player.style.top = playerYpos + "em";
