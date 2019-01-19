@@ -5,6 +5,9 @@ Browser compatibility is primarily with Mozilla Firefox and Google Chrome.
 
 In order to properly play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
 
+/****HOW TO BEGIN GAME:****/
+Click on Title.html to begin playing the game.
+
 Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
 
 Steps:
