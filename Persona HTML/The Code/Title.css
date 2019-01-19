@@ -135,17 +135,6 @@ button {
   right: 10px;
 }
 
-#credits {
-  animation: 10000ms ease-in-out infinite color-change04;
-  color: white;
-  background-color: black;
-  top: 50px;
-  right: 10px;
-  opacity: 0.0;
-  position: absolute;
-  z-index: 99;
-}
-
 #nextSongPage {
   animation: 10000ms ease-in-out infinite color-change02;
   color: white;
@@ -156,49 +145,10 @@ button {
   color: white;
 }
 
-#menu {
-  color: white;
+.navigationMenu {
   animation: 10000ms ease-in-out infinite color-change04;
-  top: 50px;
-  right: 10px;
-  opacity: 0.0;
-  position: absolute;
-  z-index: 100;
-}
-
-#options {
   color: white;
-  animation: 10000ms ease-in-out infinite color-change04;
-  top: 50px;
-  right: 10px;
-  opacity: 0.0;
-  position: absolute;
-  z-index: 99;
-}
-
-#optionsOST {
-  color: white;
-  animation: 10000ms ease-in-out infinite color-change04;
-  top: 50px;
-  right: 10px;
-  opacity: 0.0;
-  position: absolute;
-  z-index: 99;
-}
-
-#optionsTitleScreens {
-  color: white;
-  animation: 10000ms ease-in-out infinite color-change04;
-  top: 50px;
-  right: 10px;
-  opacity: 0.0;
-  position: absolute;
-  z-index: 99;
-}
-
-#themes {
-  color: white;
-  animation: 10000ms ease-in-out infinite color-change04;
+  background-color: black;
   top: 50px;
   right: 10px;
   opacity: 0.0;

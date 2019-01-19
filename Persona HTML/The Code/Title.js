@@ -1,6 +1,7 @@
 //Click Status for each menu
 let clicked = false;
 let credits = false;
+let instructions = false;
 let optionsClicked = false;
 let optionsOSTMenu = false;
 let themesClicked = false;
@@ -13,6 +14,7 @@ let clientName = null;
 
 //Document Variables
 let creditsMenu = document.getElementById("credits");
+let howToPlayMenu = document.getElementById("help");
 let menu = document.getElementById("menu");
 let optionz = document.getElementById("options");
 let optionzOST = document.getElementById("optionsOST");
@@ -62,6 +64,7 @@ function loadPreferences()
   if(localStorage.getItem("menu") !== null)
   {
     creditsMenu.style.animation = localStorage.getItem("credits");
+    howToPlayMenu.style.animation = localStorage.getItem("instructions");
     menu.style.animation = localStorage.getItem("menu");
     optionz.style.animation = localStorage.getItem("options");
     optionzOST.style.animation = localStorage.getItem("optionsOST");
@@ -99,6 +102,7 @@ function saveVideoPreferences()
 function saveThemePreferences()
 {
   localStorage.setItem("credits", creditsMenu.style.animation);
+  localStorage.setItem("instructions", howToPlayMenu.style.animation);
   localStorage.setItem("menu", menu.style.animation);
   localStorage.setItem("options", optionz.style.animation);
   localStorage.setItem("optionsOST", optionzOST.style.animation);
@@ -144,6 +148,7 @@ function randomTheme()
   document.getElementById("prevSongPage").style.animation = allThemes[randomTheme].toString();
   document.getElementById("nextSongPage").style.animation = allThemes[randomTheme].toString();
   creditsMenu.style.animation = allThemes[randomTheme].toString();
+  howToPlayMenu.style.animation = allThemes[randomTheme].toString();
   menu.style.animation = allThemes[randomTheme].toString();
   optionz.style.animation = allThemes[randomTheme].toString();
   optionzOST.style.animation = allThemes[randomTheme].toString();
@@ -166,12 +171,14 @@ function chooseTheme()
   if(!themesClicked)
   {
     themesClicked = true;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "1";
     titleScreens.style.opacity = "0.0";
     optionzOST.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "99";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "100";
@@ -181,6 +188,7 @@ function chooseTheme()
   else
   {
     themesClicked = false;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionz.style.opacity = "1";
     themes.style.opacity = "0.0";
@@ -193,6 +201,7 @@ function chooseTheme()
     prevBtn.style.animation = "10000ms ease-in-out infinite color-change04";
     nextBtn.style.animation = "10000ms ease-in-out infinite color-change04";
     creditsMenu.style.animation = "10000ms ease-in-out infinite color-change04";
+    howToPlayMenu.style.animation = "10000ms ease-in-out infinite color-change04";
     menu.style.animation = "10000ms ease-in-out infinite color-change04";
     optionz.style.animation = "10000ms ease-in-out infinite color-change04";
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change04";
@@ -205,6 +214,7 @@ function chooseTheme()
     prevBtn.style.animation = "10000ms ease-in-out infinite color-change05";
     nextBtn.style.animation = "10000ms ease-in-out infinite color-change05";
     creditsMenu.style.animation = "10000ms ease-in-out infinite color-change05";
+    howToPlayMenu.style.animation = "10000ms ease-in-out infinite color-change05";
     menu.style.animation = "10000ms ease-in-out infinite color-change05";
     optionz.style.animation = "10000ms ease-in-out infinite color-change05";
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change05";
@@ -217,6 +227,7 @@ function chooseTheme()
     prevBtn.style.animation = "10000ms ease-in-out infinite color-change";
     nextBtn.style.animation = "10000ms ease-in-out infinite color-change";
     creditsMenu.style.animation = "10000ms ease-in-out infinite color-change02";
+    howToPlayMenu.style.animation = "10000ms ease-in-out infinite color-change02";
     menu.style.animation = "10000ms ease-in-out infinite color-change02";
     optionz.style.animation = "10000ms ease-in-out infinite color-change02";
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change02";
@@ -229,6 +240,7 @@ function chooseTheme()
     prevBtn.style.animation = "10000ms ease-in-out infinite color-change02";
     nextBtn.style.animation = "10000ms ease-in-out infinite color-change02";
     creditsMenu.style.animation = "10000ms ease-in-out infinite color-change";
+    howToPlayMenu.style.animation = "10000ms ease-in-out infinite color-change";
     menu.style.animation = "10000ms ease-in-out infinite color-change";
     optionz.style.animation = "10000ms ease-in-out infinite color-change";
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change";
@@ -241,6 +253,7 @@ function chooseTheme()
     prevBtn.style.animation = "10000ms ease-in-out infinite color-change03";
     nextBtn.style.animation = "10000ms ease-in-out infinite color-change03";
     creditsMenu.style.animation = "10000ms ease-in-out infinite color-change03";
+    howToPlayMenu.style.animation = "10000ms ease-in-out infinite color-change03";
     menu.style.animation = "10000ms ease-in-out infinite color-change03";
     optionz.style.animation = "10000ms ease-in-out infinite color-change03";
     optionzOST.style.animation = "10000ms ease-in-out infinite color-change03";
@@ -254,10 +267,14 @@ function chooseTheme()
 function creditsAppear()
 {
 
+  playSonOfaNice();
+  credits = false;
+  
   if(!credits)
   {
     credits = true;
     creditsMenu.style.opacity = "1";
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
@@ -265,6 +282,7 @@ function creditsAppear()
     optionzOST.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "77%";
     creditsMenu.style.zIndex = "100";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "99";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "99";
@@ -275,6 +293,7 @@ function creditsAppear()
   {
     credits = false;
     creditsMenu.style.opacity = "0.0";
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "1";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
@@ -285,6 +304,51 @@ function creditsAppear()
 
 }
 
+function instructionsAppear()
+{
+
+  playSelect();
+  instructions = false;
+  if(!instructions)
+  {
+    instructions = true;
+    creditsMenu.style.opacity = "0.0";
+    howToPlayMenu.style.opacity = "1";
+    menu.style.opacity = "0.0";
+    optionz.style.opacity = "0.0";
+    themes.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "70%";
+    creditsMenu.style.zIndex = "99";
+    howToPlayMenu.style.zIndex = "100";
+    menu.style.zIndex = "99";
+    optionz.style.zIndex = "99";
+    themes.style.zIndex = "99";
+    titleScreens.style.zIndex = "99";
+    optionzOST.style.zIndex = "99";
+  }
+  else
+  {
+    instructions = false;
+    creditsMenu.style.opacity = "0.0";
+    howToPlayMenu.style.opacity = "0.0";
+    menu.style.opacity = "1";
+    optionz.style.opacity = "0.0";
+    themes.style.opacity = "0.0";
+    titleScreens.style.opacity = "0.0";
+    optionzOST.style.opacity = "0.0";
+    document.getElementById("backgroundVideo").style.width = "80%";
+    creditsMenu.style.zIndex = "99";
+    howToPlayMenu.style.zIndex = "99";
+    menu.style.zIndex = "100";
+    optionz.style.zIndex = "99";
+    themes.style.zIndex = "99";
+    titleScreens.style.zIndex = "99";
+    optionzOST.style.zIndex = "99";
+  }
+}
+
 function menuAppear()
 {
 
@@ -292,12 +356,14 @@ function menuAppear()
   if(!clicked)
   {
     clicked = true;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "1";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
     titleScreens.style.opacity = "0.0";
     optionzOST.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "100";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "99";
@@ -307,6 +373,7 @@ function menuAppear()
   else
   {
     clicked = false;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
@@ -322,6 +389,7 @@ function menuReturn()
   if(!clicked)
   {
     clicked = true;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "1";
     creditsMenu.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
@@ -330,6 +398,7 @@ function menuReturn()
     optionzOST.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "80%";
     creditsMenu.style.zIndex = "99";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "100";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "99";
@@ -340,6 +409,7 @@ function menuReturn()
   {
     clicked = false;
     creditsMenu.style.opacity = "0.0";
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
@@ -356,10 +426,12 @@ function options()
   if(!optionsClicked)
   {
     optionsClicked = true;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     themes.style.opacity = "0.0";
     optionz.style.opacity = "1";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "99";
     optionz.style.zIndex = "100";
     themes.style.zIndex = "99";
@@ -369,10 +441,12 @@ function options()
   else
   {
     optionsClicked = false;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "1";
     optionz.style.opacity = "0.0";
     themes.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "100";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "99";
@@ -388,12 +462,14 @@ function optionsReturn()
   if(!optionsClicked)
   {
     optionsClicked = true;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "0.0";
     optionzOST.style.opacity = "0.0";
     themes.style.opacity = "0.0";
     titleScreens.style.opacity = "0.0";
     optionz.style.opacity = "1";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "99";
     optionz.style.zIndex = "100";
     themes.style.zIndex = "99";
@@ -403,12 +479,14 @@ function optionsReturn()
   else
   {
     optionsClicked = false;
+    howToPlayMenu.style.opacity = "0.0";
     menu.style.opacity = "1";
     optionzOST.style.opacity = "0.0";
     themes.style.opacity = "0.0";
     titleScreens.style.opacity = "0.0";
     optionz.style.opacity = "0.0";
     document.getElementById("backgroundVideo").style.width = "80%";
+    howToPlayMenu.style.zIndex = "99";
     menu.style.zIndex = "100";
     optionz.style.zIndex = "99";
     themes.style.zIndex = "99";
@@ -708,10 +786,12 @@ function toTitles()
     if(!titlesClicked)
     {
       titlesClicked = true;
+      howToPlayMenu.style.opacity = "0.0";
       optionz.style.opacity = "0.0";
       themes.style.opacity = "0.0";
       titleScreens.style.opacity = "1";
       document.getElementById("backgroundVideo").style.width = "80%";
+      howToPlayMenu.style.zIndex = "99";
       menu.style.zIndex = "99";
       optionz.style.zIndex = "99";
       themes.style.zIndex = "99";
@@ -721,10 +801,12 @@ function toTitles()
     else
     {
       titlesClicked = false;
+      howToPlayMenu.style.opacity = "0.0";
       optionz.style.opacity = "1";
       themes.style.opacity = "0.0";
       titleScreens.style.opacity = "0.0";
       document.getElementById("backgroundVideo").style.width = "80%";
+      howToPlayMenu.style.zIndex = "99";
       menu.style.zIndex = "99";
       optionz.style.zIndex = "100";
       themes.style.zIndex = "99";
