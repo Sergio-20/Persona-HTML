@@ -487,20 +487,20 @@ function loadSelections()
 
 
     //Modify Selections
-    player.setAttribute("id", "player");
-    player.setAttribute("src", currentAnim);
-    player.setAttribute("height", "200");
-    player.setAttribute("width", "200");
+    player.id = "player";
+    player.src = currentAnim;
+    player.height = "200";
+    player.width = "200";
 
-    bot.setAttribute("id", "bot");
-    bot.setAttribute("src", currentBotAnim);
-    bot.setAttribute("height", "200");
-    bot.setAttribute("width", "200");
+    bot.id = "bot";
+    bot.src = currentBotAnim;
+    bot.height = "200";
+    bot.width = "200";
 
-    stageImg.setAttribute("id", "stageImg");
-    stageImg.setAttribute("src", selectedStage);
-    stageImg.setAttribute("height", "0%");
-    stageImg.setAttribute("width", "0%");
+    stageImg.id = "stageImg";
+    stageImg.src = selectedStage;
+    stageImg.height = "0%";
+    stageImg.width = "0%";
     document.body.setAttribute("style", "background-image: url("+ selectedStage +"); background-repeat: no-repeat; background-size: cover;");
 
     theBotName.innerHTML = botName;
