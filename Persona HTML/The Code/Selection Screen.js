@@ -151,6 +151,13 @@ function generateBot()
 
 }
 
+
+function returnToTitle()
+{
+
+  window.open("Title.html", "_Self");
+}
+
 function selectedCharacter()
 {
   let Aigis = document.getElementById("Aigis");
@@ -166,6 +173,12 @@ function selectedCharacter()
       Aigis.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 7`;
+            document.getElementById("statBlock").textContent = `Block: 10`;
+            document.getElementById("statHealth").textContent = `Health: 120`;
+            document.getElementById("statSpeed").textContent = `Speed: 12`;
+
             characterActive = true;
             Aigis.style.boxShadow = "10px 10px lime";
             Chie.style.boxShadow = "";
@@ -200,6 +213,12 @@ function selectedCharacter()
       Chie.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 5`;
+            document.getElementById("statBlock").textContent = `Block: 4`;
+            document.getElementById("statHealth").textContent = `Health: 90`;
+            document.getElementById("statSpeed").textContent = `Speed: 22`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "10px 10px lime";
@@ -234,6 +253,12 @@ function selectedCharacter()
       Kuma.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 7`;
+            document.getElementById("statBlock").textContent = `Block: 9`;
+            document.getElementById("statHealth").textContent = `Health: 130`;
+            document.getElementById("statSpeed").textContent = `Speed: 8`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -268,6 +293,12 @@ function selectedCharacter()
       Labrys.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 8`;
+            document.getElementById("statBlock").textContent = `Block: 5`;
+            document.getElementById("statHealth").textContent = `Health: 100`;
+            document.getElementById("statSpeed").textContent = `Speed: 16`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -302,6 +333,12 @@ function selectedCharacter()
       Mitsuru.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 7`;
+            document.getElementById("statBlock").textContent = `Block: 3`;
+            document.getElementById("statHealth").textContent = `Health: 115`;
+            document.getElementById("statSpeed").textContent = `Speed: 28`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -336,6 +373,12 @@ function selectedCharacter()
       Sho.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 6`;
+            document.getElementById("statBlock").textContent = `Block: 4`;
+            document.getElementById("statHealth").textContent = `Health: 115`;
+            document.getElementById("statSpeed").textContent = `Speed: 28`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -370,6 +413,12 @@ function selectedCharacter()
       Yosuke.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 5`;
+            document.getElementById("statBlock").textContent = `Block: 8`;
+            document.getElementById("statHealth").textContent = `Health: 105`;
+            document.getElementById("statSpeed").textContent = `Speed: 16`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -405,6 +454,12 @@ function selectedCharacter()
 
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 6`;
+            document.getElementById("statBlock").textContent = `Block: 6`;
+            document.getElementById("statHealth").textContent = `Health: 100`;
+            document.getElementById("statSpeed").textContent = `Speed: 16`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -439,6 +494,12 @@ function selectedCharacter()
       Yu.addEventListener("click", ()=>{
         if(characterActive === false)
         {
+
+            document.getElementById("statAttack").textContent = `Attack: 7`;
+            document.getElementById("statBlock").textContent = `Block: 7`;
+            document.getElementById("statHealth").textContent = `Health: 110`;
+            document.getElementById("statSpeed").textContent = `Speed: 20`;
+
             characterActive = true;
             Aigis.style.boxShadow = "";
             Chie.style.boxShadow = "";
@@ -481,9 +542,12 @@ function stageSelect()
   let musicRoom = document.getElementById("Music-Room");
   let p4 = document.getElementById("P4");
 
+  let selectFX = document.getElementById("select");
+
   entrance.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "10px 10px lime";
         gym.style.boxShadow = "";
@@ -504,6 +568,7 @@ function stageSelect()
   gym.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "10px 10px lime";
@@ -524,6 +589,7 @@ function stageSelect()
   hallway.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
@@ -544,6 +610,7 @@ function stageSelect()
   lockers.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
@@ -564,6 +631,7 @@ function stageSelect()
   musicRoom.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
@@ -584,6 +652,7 @@ function stageSelect()
   p4.addEventListener("click", ()=>{
     if(stageActive === false)
     {
+        selectFX.play();
         stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
@@ -608,7 +677,7 @@ function loadSelections()
 {
   beginGame.addEventListener("click",()=>{
 
-    if(characterActive && stageActive)
+    if(characterActive === true && stageActive === true)
     {
       //Clear Screen
       document.body.innerHTML = "";

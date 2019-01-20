@@ -18,11 +18,20 @@
 <audio id="error"><source src="../OST/Denied.mp3"/></audio>
 <audio id="select"><source src="../OST/Select.mp3"/></audio>
 
+<h2 id="return"><a onclick="returnToTitle()">Return</a></h2>
+
 <video loop id="videoPlayer">
 </video>
 
 <audio loop id="audio">
 </audio>
+
+<div id="statBox">
+  <h3 id="statAttack">Attack: ?</h3>
+  <h3 id="statBlock">Block: ?</h3>
+  <h3 id="statHealth">Health: ?</h3>
+  <h3 id="statSpeed">Speed: ?</h3>
+</div>
 
 <div id="characters">
 
@@ -73,7 +82,7 @@
 
 </div>
 
-<button id="loadSelections" onclick="loadSelections();">Let's Go!</button>
+<button class="btn" id="loadSelections" onclick="loadSelections();">Let's Go!</button>
 
 <script src="Selection Screen.js"></script>
 <script src="Gameplay.js"></script>

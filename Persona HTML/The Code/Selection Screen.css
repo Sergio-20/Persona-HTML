@@ -293,13 +293,32 @@
     color: black;
   }
 
-  /*Begin Game*/
+  /*StatBox*/
+  #statBox {
+    background-color: grey;
+    color: white;
+    left: 7em;
+    opacity: 1.0;
+    position: absolute;
+    top: 15em;
+  }
 
+  /*Begin Game*/
   #loadSelections {
     top: 1800px;
     left: 0px;
     position: absolute;
     width: 100%;
+  }
+
+  /*Return to Title Screen button*/
+  #return {
+    background-color: grey;
+    color: lime;
+    cursor: pointer;
+    left: -8em;
+    position: absolute;
+    top: -1em;
   }
 
   /* Media Queries */
