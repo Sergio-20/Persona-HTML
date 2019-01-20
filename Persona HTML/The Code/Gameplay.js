@@ -3,6 +3,7 @@
 let userHealthBar = document.createElement("PROGRESS");
 let cpuHealthBar = document.createElement("PROGRESS");
 
+
 let playerXPos = 0;
 let playerYpos = 28;
 
@@ -11,54 +12,68 @@ let ost = [["../OST/A Way Of Life.mp3", "../OST/Beneath the Mask.mp3", "../OST/B
 ["../OST/Heaven.mp3", "../OST/Joy.mp3", "../OST/Kimi no Kioku.mp3", "../OST/Last Surprise.mp3"],
 ["../OST/More Than One Heart.mp3", "../OST/Never More.mp3", "../OST/Our Moment.mp3", "../OST/Soul Phase.mp3"]];
 
-
 document.addEventListener("keydown", onKeyDownHandler);
 document.addEventListener("keyup", onKeyUpHandler);
 
-
 class Person{
 
-  constructor(name, attack, block, health){
-    this.name = name;
-    this.attack = attack;
-    this.block = block;
-    this.health = health;
-  }
-
-  getName()
-  {
-    return this.name;
+  constructor(attack, block, health){
+    this.attack = 5;
+    this.block = 5;
+    this.health = 100;
   }
 
 }
 
 class Player extends Person{
 
-  attackCPU()
-  {
-      return (cpuHealthBar.value);
+  constructor(){
+      super();
   }
 
-
+  attackCPU()
+  {
+      cpuHealthValue = cpuHealthValue - Math.abs(userAttackValue - cpuBlockValue);
+      console.log("CPU: " + cpuHealthValue);
+      return (cpuHealthBar.setAttribute("value", cpuHealthValue));
+  }
 
 }
 
 class CPU extends Person{
 
-  attackPlayer()
-  {
-      return (userHealthBar.value);
+  constructor(){
+    super();
   }
 
-  //implement defense system
+  attackPlayer()
+  {
+      userHealthValue = userHealthValue - Math.abs(cpuAttackValue - userBlockValue);
+      console.log("USER: " + userHealthValue);
+      return (userHealthBar.setAttribute("value", userHealthValue));
+  }
 
 }
+let c = new CPU();
+let p = new Player();
 
+let cpuAttackValue = c.attack;
+let cpuBlockValue = c.block;
+let cpuHealthValue = c.health;
+let cpuHealthValueTie = cpuHealthValue;
+//let cpuHealthValue = c.health + c.block;
+
+let userAttackValue = p.attack;
+let userBlockValue = p.block;
+let userHealthValue = p.health;
+let userHealthValueTie = userHealthValue;
+//let userHealthValue = p.health + p.block;
 
 //The A.I. that makes decisions
 function cpuBrain()
 {
-
+  c.attackPlayer();
+  p.attackCPU();
 }
 
 //Prompts user on their win or loss
@@ -66,14 +81,38 @@ function cpuBrain()
 function battleEnd()
 {
 
+  if(cpuHealthValue <= 0 && userHealthValue <= 0)
+  {
+    alert("Woah, we have a tie! How about a rematch!?");
+    userHealthBar.setAttribute("max", userHealthValueTie);
+    cpuHealthBar.setAttribute("max", cpuHealthValueTie);
+    userHealthValue = userHealthValueTie / 2;
+    cpuHealthValue = cpuHealthValueTie / 2;
+    userHealthBar.setAttribute("value", userHealthValueTie);
+    cpuHealthBar.setAttribute("value", cpuHealthValueTie);
+  }
+  else if(userHealthValue <= 0)
+  {
+    alert(`${botName} has won the match!`);
+    window.open("Selection Screen.html", "_self");
+  }
+  else if(cpuHealthValue <= 0)
+  {
+    alert(`${JSON.parse(localStorage.getItem("client"))} has won the match!`);
+    window.open("Selection Screen.html", "_self");
+  }
+
 }
 
 //Used for player actions
 function onKeyDownHandler(e)
 {
 
+  battleEnd();
+
   if(e.keyCode === 65)//"A" Button Press
   {
+cpuBrain();
     if(currentAnim === AigisAnim[0].toString()){
       player.src = "../Characters/Aigis/aigis-attack.gif";
     }
@@ -104,7 +143,7 @@ function onKeyDownHandler(e)
 
   }
 
-  else if(e.keyCode === 83)//"S" Button Press
+  if(e.keyCode === 83)//"S" Button Press
   {
 
       if(currentAnim === AigisAnim[0].toString()){
@@ -270,6 +309,7 @@ function onKeyDownHandler(e)
     playerXPos += 20;
     player.style.left = playerXPos + "px";
     }
+
   }
 
   else if(e.keyCode === 38 && playerYpos >= 10)//Up Arrow Key
@@ -288,6 +328,8 @@ function onKeyDownHandler(e)
 
 function onKeyUpHandler(e)
 {
+
+  battleEnd();
 
   if(e.keyCode === 65 || e.keyCode === 83 || e.keyCode === 68 || e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 38){
 
@@ -333,14 +375,10 @@ function OST()
 
 function setHealthbar()
 {
-  userHealthBar.setAttribute("value", "80");
-  cpuHealthBar.setAttribute("value","80");
-  userHealthBar.setAttribute("max","100");
-  cpuHealthBar.setAttribute("max","100");
 
   userHealthBar.setAttribute("id", "playerHealth");
 
-  cpuHealthBar.setAttribute("id", "cpuHealth");
+  cpuHealthBar.setAttribute("id", "cpuHealth")
 
   userHealthBar.setAttribute("style", "display: block; position: absolute; top: 1em; left: 0.5em; background-color: red;");
 

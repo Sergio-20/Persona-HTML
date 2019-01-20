@@ -15,6 +15,9 @@
 
 <body onload="randomBackground();resetSelections();setHealthbar();">
 
+<audio id="error"><source src="../OST/Denied.mp3"/></audio>
+<audio id="select"><source src="../OST/Select.mp3"/></audio>
+
 <video loop id="videoPlayer">
 </video>
 
@@ -70,15 +73,7 @@
 
 </div>
 
-<h1 id="difficultyPrompt">Select a Difficulty!</h1>
-
-<div>
-<button id="easy" onclick="selectedDifficulty()">Easy</button>
-<button id="normal" onclick="selectedDifficulty()">Normal</button>
-<button id="hard" onclick="selectedDifficulty()">Hard</button>
-</div>
-
-<button id="loadSelections" onclick="loadSelections()">Let's Go!</button>
+<button id="loadSelections" onclick="loadSelections();">Let's Go!</button>
 
 <script src="Selection Screen.js"></script>
 <script src="Gameplay.js"></script>

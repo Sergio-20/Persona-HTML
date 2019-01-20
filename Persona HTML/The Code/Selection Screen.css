@@ -288,33 +288,6 @@
     box-shadow: 10px 10px lime;
   }
 
-  /*Difficulties:*/
-  #difficultyPrompt {
-    top: 1500px;
-    left: 500px;
-    position: absolute;
-    text-align: center;
-  }
-
-  #easy {
-    top: 1600px;
-    left: 400px;
-    position: absolute;
-  }
-
-  #normal {
-    top: 1600px;
-    left: 600px;
-    position: absolute;
-  }
-
-  #hard {
-    top: 1600px;
-    left: 800px;
-    position: absolute;
-  }
-
-
   button:hover {
     background-color: lime;
     color: black;

@@ -34,6 +34,8 @@ let = botNameArray = [
 
 let botName = "";
 
+let preventSameCharacter = "";
+
 let currentAnim = "";
 let currentBotAnim = "";
 
@@ -41,7 +43,6 @@ let currentBotAnim = "";
 
 let stage = ["../Stages/Entrance.jpg","../Stages/Gym.jpg","../Stages/Hallway.jpg","../Stages/Lockers.jpg","../Stages/Music-Room.jpg","../Stages/P4.jpg"];
 let selectedStage = "";
-
 
 //Created Elements
 let player = document.createElement("IMG");
@@ -68,6 +69,86 @@ function generateBot()
   let randomColumn = Math.floor(Math.random() * 3);
   currentBotAnim = botAnim[randomRow][randomColumn];
   botName = botNameArray[randomRow][randomColumn];
+  if(preventSameCharacter === botName)
+  {
+    generateBot();
+  }
+
+  //Generate Bot Stats:
+
+  if(botName === botNameArray[0][0])
+  {
+    cpuAttackValue = 7;
+    cpuBlockValue = 10;
+    cpuHealthValue = 120;
+    cpuHealthBar.setAttribute("value", "120");
+    cpuHealthBar.setAttribute("max", "120");
+  }
+  else if(botName === botNameArray[0][1])
+  {
+    cpuAttackValue = 5;
+    cpuBlockValue = 4;
+    cpuHealthValue = 90;
+    cpuHealthBar.setAttribute("value", "90");
+    cpuHealthBar.setAttribute("max", "90");
+  }
+  else if(botName === botNameArray[0][2])
+  {
+    cpuAttackValue = 7;
+    cpuBlockValue = 9;
+    cpuHealthValue = 130;
+    cpuHealthBar.setAttribute("value", "130");
+    cpuHealthBar.setAttribute("max", "130");
+  }
+  else if(botName === botNameArray[1][0])
+  {
+    cpuAttackValue = 8;
+    cpuBlockValue = 5;
+    cpuHealthValue = 100;
+    cpuHealthBar.setAttribute("value", "100");
+    cpuHealthBar.setAttribute("max", "100");
+  }
+  else if(botName === botNameArray[1][1])
+  {
+    cpuAttackValue = 7;
+    cpuBlockValue = 3;
+    cpuHealthValue = 115;
+    cpuHealthBar.setAttribute("value", "115");
+    cpuHealthBar.setAttribute("max", "115");
+  }
+  else if(botName === botNameArray[1][2])
+  {
+    cpuAttackValue = 6;
+    cpuBlockValue = 4;
+    cpuHealthValue = 115;
+    cpuHealthBar.setAttribute("value", "115");
+    cpuHealthBar.setAttribute("max", "115");
+  }
+  else if(botName === botNameArray[2][0])
+  {
+    cpuAttackValue = 5;
+    cpuBlockValue = 8;
+    cpuHealthValue = 105;
+    cpuHealthBar.setAttribute("value", "105");
+    cpuHealthBar.setAttribute("max", "105");
+  }
+  else if(botName === botNameArray[2][1])
+  {
+    cpuAttackValue = 6;
+    cpuBlockValue = 6;
+    cpuHealthValue = 100;
+    cpuHealthBar.setAttribute("value", "100");
+    cpuHealthBar.setAttribute("max", "100");
+  }
+  else if(botName === botNameArray[2][2])
+  {
+    cpuAttackValue = 7;
+    cpuBlockValue = 7;
+    cpuHealthValue = 110;
+    cpuHealthBar.setAttribute("value", "110");
+    cpuHealthBar.setAttribute("max", "110");
+  }
+
 }
 
 function selectedCharacter()
@@ -98,10 +179,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Aigis-Save", AigisAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Aigis-Save");
+
+            userAttackValue = 7;
+            userBlockValue = 10;
+            userHealthValue = 120;
+            userHealthBar.setAttribute("max", "120");
+
+
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -121,10 +213,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Chie-Save", ChieAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Chie-Save");
+
+            preventSameCharacter = botNameArray[0][1];
+
+            userAttackValue = 5;
+            userBlockValue = 4;
+            userHealthValue = 90;
+            userHealthBar.setAttribute("max", "90");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -144,10 +247,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Kuma-Save", KumaAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Kuma-Save");
+
+            preventSameCharacter = botNameArray[0][2];
+
+            userAttackValue = 7;
+            userBlockValue = 9;
+            userHealthValue = 130;
+            userHealthBar.setAttribute("max", "130");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -167,10 +281,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Labrys-Save", LabrysAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Labrys-Save");
+
+            preventSameCharacter = botNameArray[1][0];
+
+            userAttackValue = 8;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -190,10 +315,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Mitsuru-Save", MitsuruAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Mitsuru-Save");
+
+            preventSameCharacter = botNameArray[1][1];
+
+            userAttackValue = 7;
+            userBlockValue = 3;
+            userHealthValue = 115;
+            userHealthBar.setAttribute("max", "115");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -213,10 +349,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Sho-Save", ShoAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Sho-Save");
+
+            preventSameCharacter = botNameArray[1][2];
+
+            userAttackValue = 6;
+            userBlockValue = 4;
+            userHealthValue = 115;
+            userHealthBar.setAttribute("max", "115");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "115");
         }
       });
 
@@ -236,10 +383,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Yosuke-Save", YosukeAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Yosuke-Save");
+
+            preventSameCharacter = botNameArray[2][0];
+
+            userAttackValue = 5;
+            userBlockValue = 8;
+            userHealthValue = 105;
+            userHealthBar.setAttribute("max", "105");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 105;
+            userHealthBar.setAttribute("max", "105");
         }
       });
 
@@ -260,10 +418,21 @@ function selectedCharacter()
 
             sessionStorage.setItem("Yukiko-Save", YukikoAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Yukiko-Save");
+
+            preventSameCharacter = botNameArray[2][1];
+
+            userAttackValue = 6;
+            userBlockValue = 6;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
 
@@ -283,58 +452,23 @@ function selectedCharacter()
 
             sessionStorage.setItem("Yu-Save", YuAnim[0].toString() );
             currentAnim = sessionStorage.getItem("Yu-Save");
+
+            preventSameCharacter = botNameArray[2][2];
+
+            userAttackValue = 7;
+            userBlockValue = 7;
+            userHealthValue = 110;
+            userHealthBar.setAttribute("max", "110");
         }
         else
         {
             characterActive = false;
+            userAttackValue = 5;
+            userBlockValue = 5;
+            userHealthValue = 100;
+            userHealthBar.setAttribute("max", "100");
         }
       });
-
-
-
-
-
-
-}
-
-function selectedDifficulty()
-{
-  let easy = document.getElementById("easy");
-  let normal = document.getElementById("normal");
-  let hard = document.getElementById("hard");
-
-  easy.addEventListener("click", ()=>{
-    if(difficultyActive === false)
-    {
-        difficultyActive = true;
-    }
-    else
-    {
-        difficultyActive = false;
-    }
-  });
-
-  normal.addEventListener("click", ()=>{
-    if(difficultyActive === false)
-    {
-        difficultyActive = true;
-    }
-    else
-    {
-        difficultyActive = false;
-    }
-  });
-
-  hard.addEventListener("click", ()=>{
-    if(difficultyActive === false)
-    {
-        difficultyActive = true;
-    }
-    else
-    {
-        difficultyActive = false;
-    }
-  });
 
 }
 
@@ -350,7 +484,7 @@ function stageSelect()
   entrance.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "10px 10px lime";
         gym.style.boxShadow = "";
         hallway.style.boxShadow = "";
@@ -370,7 +504,7 @@ function stageSelect()
   gym.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "10px 10px lime";
         hallway.style.boxShadow = "";
@@ -390,7 +524,7 @@ function stageSelect()
   hallway.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
         hallway.style.boxShadow = "10px 10px lime";
@@ -410,7 +544,7 @@ function stageSelect()
   lockers.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
         hallway.style.boxShadow = "";
@@ -430,7 +564,7 @@ function stageSelect()
   musicRoom.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
         hallway.style.boxShadow = "";
@@ -450,7 +584,7 @@ function stageSelect()
   p4.addEventListener("click", ()=>{
     if(stageActive === false)
     {
-        characterActive = true;
+        stageActive = true;
         entrance.style.boxShadow = "";
         gym.style.boxShadow = "";
         hallway.style.boxShadow = "";
@@ -474,57 +608,61 @@ function loadSelections()
 {
   beginGame.addEventListener("click",()=>{
 
-    //Clear Screen
-    document.body.innerHTML = "";
-    document.body.style.animation = "none";
-    document.body.style.backgroundColor = "white";
-    document.title = "Gameplay";
+    if(characterActive && stageActive)
+    {
+      //Clear Screen
+      document.body.innerHTML = "";
+      document.body.style.animation = "none";
+      document.body.style.backgroundColor = "white";
+      document.title = "Gameplay";
 
-    /*Method Calls*/
-    generateBot();
-    OST();
-    /*End od Method Calls*/
+      /*Method Calls*/
+      generateBot();
+      OST();
+      /*End od Method Calls*/
 
 
-    //Modify Selections
-    player.id = "player";
-    player.src = currentAnim;
-    player.height = "200";
-    player.width = "200";
+      //Modify Selections
+      player.id = "player";
+      player.src = currentAnim;
+      player.height = "200";
+      player.width = "200";
 
-    bot.id = "bot";
-    bot.src = currentBotAnim;
-    bot.height = "200";
-    bot.width = "200";
+      bot.id = "bot";
+      bot.src = currentBotAnim;
+      bot.height = "200";
+      bot.width = "200";
 
-    stageImg.id = "stageImg";
-    stageImg.src = selectedStage;
-    stageImg.height = "0%";
-    stageImg.width = "0%";
-    document.body.setAttribute("style", "background-image: url("+ selectedStage +"); background-repeat: no-repeat; background-size: cover;");
+      stageImg.id = "stageImg";
+      stageImg.src = selectedStage;
+      stageImg.height = "0%";
+      stageImg.width = "0%";
+      document.body.setAttribute("style", "background-image: url("+ selectedStage +"); background-repeat: no-repeat; background-size: cover;");
 
-    theBotName.innerHTML = botName;
-    theBotName.setAttribute("style", "background-color: grey; color: white; position: absolute; right: 0.5em;");
+      theBotName.innerHTML = botName;
+      theBotName.setAttribute("style", "background-color: grey; color: white; position: absolute; right: 0.5em;");
 
-    username.innerHTML = JSON.parse(localStorage.getItem("client"));
-    username.setAttribute("style", "background-color: grey; color: white; position: absolute; left: 0.5em;");
+      username.innerHTML = JSON.parse(localStorage.getItem("client"));
+      username.setAttribute("style", "background-color: grey; color: white; position: absolute; left: 0.5em;");
 
-    //Load Selections
-    document.body.appendChild(player);
-    document.body.appendChild(bot);
-    document.body.appendChild(stageImg);
+      //Load Selections
+      document.body.appendChild(player);
+      document.body.appendChild(bot);
+      document.body.appendChild(stageImg);
 
-    //Append created health bars found in Gameplay.js
-    document.body.appendChild(userHealthBar);
-    document.body.appendChild(cpuHealthBar);
-    document.body.appendChild(theBotName);
-    document.body.appendChild(username);
-    document.body.appendChild(audio);
+      //Append created health bars found in Gameplay.js
+      document.body.appendChild(userHealthBar);
+      document.body.appendChild(cpuHealthBar);
+      document.body.appendChild(theBotName);
+      document.body.appendChild(username);
+      document.body.appendChild(audio);
 
-    //Spawn Points
-    player.setAttribute("style", "position: absolute; top: 28em; transform: scaleX(-1);");
-    bot.setAttribute("style", "position: absolute; top: 28em; right: 0.5em;");
+      //Spawn Points
+      player.setAttribute("style", "position: absolute; top: 28em; transform: scaleX(-1);");
+      bot.setAttribute("style", "position: absolute; top: 28em; right: 0.5em;");
 
+      }
+    else {document.getElementById("error").play();}
   });
 }
 
