@@ -3,10 +3,10 @@ An ongoing project to make a Persona game using HTML, CSS, and Javascript for le
 
 Browser compatibility is primarily with Mozilla Firefox and Google Chrome.
 
-In order to properly play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
-
 HOW TO BEGIN GAME: 
 Click on Title.html to begin playing the game.
+
+In order to properly play the game in Chrome, change Google Chrome's autoplay policy behaviour. This ensures compatibility with Chrome.
 
 Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
 
