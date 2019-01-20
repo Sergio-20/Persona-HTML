@@ -7,6 +7,9 @@ let cpuHealthBar = document.createElement("PROGRESS");
 let playerXPos = 0;
 let playerYpos = 28;
 
+let blockingActive = false;
+let cpuBlockingActive = false;
+
 let ost = [["../OST/A Way Of Life.mp3", "../OST/Beneath the Mask.mp3", "../OST/Brand New Days.mp3", "../OST/Burn My Dread.mp3"],
 ["../OST/Changing Seasons.mp3", "../OST/Dance!.mp3", "../OST/Deep breath Deep breath.mp3", "../OST/Heartbreak, Heartbreak.mp3"],
 ["../OST/Heaven.mp3", "../OST/Joy.mp3", "../OST/Kimi no Kioku.mp3", "../OST/Last Surprise.mp3"],
@@ -33,9 +36,18 @@ class Player extends Person{
 
   attackCPU()
   {
-      cpuHealthValue = cpuHealthValue - Math.abs(userAttackValue - cpuBlockValue);
-      console.log("CPU: " + cpuHealthValue);
-      return (cpuHealthBar.setAttribute("value", cpuHealthValue));
+      if(blockingActive)
+      {
+        cpuHealthValue = cpuHealthValue - Math.abs(userAttackValue - cpuBlockValue);
+        console.log("CPU: " + cpuHealthValue);
+        return (cpuHealthBar.setAttribute("value", cpuHealthValue));
+      }
+      else
+      {
+        cpuHealthValue -= userAttackValue;
+        console.log("CPU: " + cpuHealthValue);
+        return (cpuHealthBar.setAttribute("value", cpuHealthValue));
+      }
   }
 
 }
@@ -48,9 +60,18 @@ class CPU extends Person{
 
   attackPlayer()
   {
-      userHealthValue = userHealthValue - Math.abs(cpuAttackValue - userBlockValue);
-      console.log("USER: " + userHealthValue);
-      return (userHealthBar.setAttribute("value", userHealthValue));
+      if(cpuBlockingActive)
+      {
+        userHealthValue = userHealthValue - Math.abs(cpuAttackValue - userBlockValue);
+        console.log("USER: " + userHealthValue);
+        return (userHealthBar.setAttribute("value", userHealthValue));
+      }
+      else
+      {
+        userHealthValue -= cpuAttackValue;
+        console.log("USER: " + userHealthValue);
+        return (userHealthBar.setAttribute("value", userHealthValue));
+      }
   }
 
 }
@@ -61,13 +82,11 @@ let cpuAttackValue = c.attack;
 let cpuBlockValue = c.block;
 let cpuHealthValue = c.health;
 let cpuHealthValueTie = cpuHealthValue;
-//let cpuHealthValue = c.health + c.block;
 
 let userAttackValue = p.attack;
 let userBlockValue = p.block;
 let userHealthValue = p.health;
 let userHealthValueTie = userHealthValue;
-//let userHealthValue = p.health + p.block;
 
 //The A.I. that makes decisions
 function cpuBrain()
@@ -112,7 +131,10 @@ function onKeyDownHandler(e)
 
   if(e.keyCode === 65)//"A" Button Press
   {
-cpuBrain();
+
+    blockingActive = false;
+    cpuBrain();
+
     if(currentAnim === AigisAnim[0].toString()){
       player.src = "../Characters/Aigis/aigis-attack.gif";
     }
@@ -145,6 +167,7 @@ cpuBrain();
 
   if(e.keyCode === 83)//"S" Button Press
   {
+      blockingActive = true;
 
       if(currentAnim === AigisAnim[0].toString()){
         player.src = "../Characters/Aigis/aigis-block.gif";
@@ -178,6 +201,8 @@ cpuBrain();
 
   if(e.keyCode === 37 && playerXPos >= -32)//Left Arrow Key
   {
+
+    blockingActive = false;
 
     if(currentAnim === AigisAnim[0].toString()){
     player.src = "../Characters/Aigis/aigis-run.gif";
@@ -247,6 +272,8 @@ cpuBrain();
   else if(e.keyCode === 39 && playerXPos <= 1140)//Right Arrow Key
   {
 
+    blockingActive = false;
+
     if(currentAnim === AigisAnim[0].toString()){
     player.src = "../Characters/Aigis/aigis-run.gif";
     player.style.transform = "scaleX(-1)";
@@ -314,12 +341,16 @@ cpuBrain();
 
   else if(e.keyCode === 38 && playerYpos >= 10)//Up Arrow Key
   {
+      blockingActive = false;
+
       playerYpos -= 2;
       player.style.top = playerYpos + "em";
   }
 
   else if(e.keyCode === 40 && playerYpos <= 28)//Down Arrow Key
   {
+    blockingActive = false;
+
     playerYpos += 2;
     player.style.top = playerYpos + "em";
   }
