@@ -19,7 +19,7 @@ Steps:
 
 ## Character Select Screen
 ![3](https://user-images.githubusercontent.com/29030325/51750732-d217b480-2067-11e9-9f56-8809e4c76be2.png)
-![5](https://user-images.githubusercontent.com/29030325/51750771-ec519280-2067-11e9-936c-27f45b324828.png)
+![7](https://user-images.githubusercontent.com/29030325/51751104-d395ac80-2068-11e9-9edc-72912bd258aa.png)
 
 ## Stage Select Screen
 ![4](https://user-images.githubusercontent.com/29030325/51750809-03908000-2068-11e9-8988-9dbcdb22868c.png)
