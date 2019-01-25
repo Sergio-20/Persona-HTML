@@ -13,3 +13,16 @@ Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-
 Steps:
 1) On Google Chrome, type the following into the address bar:  chrome://flags/#autoplay-policy
 2) Next to "Autoplay Policy", change the value from "Default", to "No user gesture is required".
+
+## Title Screen
+![1](https://user-images.githubusercontent.com/29030325/51750600-67667900-2067-11e9-9995-245d1db82da2.png)
+
+## Character Select Screen
+![3](https://user-images.githubusercontent.com/29030325/51750732-d217b480-2067-11e9-9f56-8809e4c76be2.png)
+![5](https://user-images.githubusercontent.com/29030325/51750771-ec519280-2067-11e9-936c-27f45b324828.png)
+
+## Stage Select Screen
+![4](https://user-images.githubusercontent.com/29030325/51750809-03908000-2068-11e9-8988-9dbcdb22868c.png)
+
+## Gameplay
+![6](https://user-images.githubusercontent.com/29030325/51750853-21f67b80-2068-11e9-9542-1b8f651437b0.png)
