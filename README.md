@@ -13,6 +13,7 @@ Announcement: https://developers.google.com/web/updates/2017/09/autoplay-policy-
 Steps:
 1) On Google Chrome, type the following into the address bar:  chrome://flags/#autoplay-policy
 2) Next to "Autoplay Policy", change the value from "Default", to "No user gesture is required".
+3) Lastly, restart your chrome browser.
 
 ## Title Screen
 ![1](https://user-images.githubusercontent.com/29030325/51750600-67667900-2067-11e9-9995-245d1db82da2.png)
