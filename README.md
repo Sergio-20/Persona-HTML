@@ -15,6 +15,9 @@ Steps:
 2) Next to "Autoplay Policy", change the value from "Default", to "No user gesture is required".
 3) Lastly, restart your chrome browser.
 
+# Alternatively You Can Play It Online:
+https://sergio-20.github.io/Persona-HTML-Online/The%20Code/Title.html
+
 ## Title Screen
 ![1](https://user-images.githubusercontent.com/29030325/51750600-67667900-2067-11e9-9995-245d1db82da2.png)
 
